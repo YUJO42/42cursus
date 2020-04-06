@@ -6,13 +6,13 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 21:51:32 by yujo              #+#    #+#             */
-/*   Updated: 2020/04/06 14:49:44 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/06 14:52:17 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+size_t		ft_atoi(const char *str)
 {
 	int is_minus;
 	size_t result;
