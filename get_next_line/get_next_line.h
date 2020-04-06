@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 20:29:27 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/04 19:11:43 by yujo             ###   ########.fr       */
+/*   Created: 2020/04/05 15:05:26 by yujo              #+#    #+#             */
+/*   Updated: 2020/04/05 15:07:19 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-char	*ft_strrchr(const char *s, int c)
-{
-	char	*ret;
+# include <unistd.h>
+# include <fcntl.h>
 
-	ret = NULL;
-	while (*s)
-	{
-		if (*s == (char)c)
-			ret = (char *)s;
-		s++;
-	}
-	if (*s == (char)c)
-		ret = (char *)s;
-	return (ret);
-}
+
+#endif

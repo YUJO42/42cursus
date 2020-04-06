@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/21 20:15:55 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/23 09:26:40 by yujo             ###   ########.fr       */
+/*   Created: 2020/02/25 16:12:09 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/04 18:18:14 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 	return (i);
 }
-/*
-int main(void)
-{
-	char dst1[20];
-	char dst2[20];
-	char *src = "Hello strlcpy!";
-
-	strlcpy(dst1, src, 15);
-	ft_strlcpy(dst2, src, 15);
-
-	printf("strlcpy : %s\n", dst1);
-	printf("ft_strlcpy : %s\n", dst2);
-	
-	return 0;
-}
-*/

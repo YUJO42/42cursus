@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/21 17:33:34 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/21 19:49:56 by yujo             ###   ########.fr       */
+/*   Created: 2020/02/27 22:28:01 by yujo              #+#    #+#             */
+/*   Updated: 2020/02/28 15:18:38 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,46 +14,18 @@
 
 int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*str1;
-	unsigned char	*str2;
-	size_t			i;
+	unsigned char *arr1;
+	unsigned char *arr2;
 
 	if (n == 0)
 		return (0);
-
-	str1 = (unsigned char *)s1;
-	str2 = (unsigned char *)s2;
-	i = 0;
-
-	while (i < n)
+	arr1 = (unsigned char *)s1;
+	arr2 = (unsigned char *)s2;
+	while ((*arr1 == *arr2) && n - 1 > 0)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
-		i++;
+		arr1++;
+		arr2++;
+		n--;
 	}
-	if (i == n)
-		i--;
-	if (str1[i] == str2[i])
-		return (0);
-	return (str1[i] - str2[i]);
+	return (*arr1 - *arr2);
 }
-
-/*
-
-int main(void)
-{
-	char *str1 = "hello my libft";
-	char *str2 = "hello my libfT";
-	
-	char *str3 = "test";
-	char *str4 = "tEst";
-
-	printf("memcmp : %d\n", memcmp(str1, str2, 20));
-	printf("ft_memcmp : %d\n", ft_memcmp(str1, str2, 20));
-	printf("memcmp : %d\n", memcmp(str1, str2, 5));
-	printf("ft_memcmp : %d\n", ft_memcmp(str1, str2, 5));
-	printf("memcmp : %d\n", memcmp(str3, str4, 5)); 	  // output : 1
-	printf("ft_memcmp : %d\n", ft_memcmp(str3, str4, 5)); // output : 32; <--- check하기
-}
-
-*/

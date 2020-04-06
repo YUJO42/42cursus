@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 21:51:32 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/23 21:57:27 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/06 14:49:44 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,3 @@ int		ft_atoi(const char *str)
 	}
 	return (result * is_minus);
 }
-
-/*
-int main(void)
-{
-	char *str = "123456";
-
-	printf("atoi : %d\n", atoi(str) - 1);
-	printf("ft_atoi : %d\n", ft_atoi(str) - 1);
-
-	return 0;
-}
-*/

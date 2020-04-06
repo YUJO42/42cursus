@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/23 09:53:09 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/23 10:08:24 by yujo             ###   ########.fr       */
+/*   Created: 2020/02/26 11:28:10 by yujo              #+#    #+#             */
+/*   Updated: 2020/03/03 17:11:23 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	return (i);
 }
-
-/*
-int main(void)
-{
-	char dst1[10] = "Hello, ";
-	char dst2[10] = "Hello, ";
-	char *src = "strlcat";
-
-	printf("%zu\n", strlcat(dst1, src, 20));
-	printf("%zu\n", ft_strlcat(dst2, src, 20));
-
-	printf("strlcat : %s\n", dst1);
-	printf("ft_strlcat : %s\n", dst2);
-	
-	return 0;
-}
-*/
