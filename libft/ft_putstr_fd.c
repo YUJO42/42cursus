@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 16:55:52 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/03 17:32:28 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/07 17:46:32 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));	
+	write(fd, s, ft_strlen(s));
 }

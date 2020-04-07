@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:16:53 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/04 17:28:43 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/07 17:46:55 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *)haystack);
 	len_needle = ft_strlen(needle);
 	if (len <= len_needle)
-		return 0;
+		return (0);
 	len_needle -= 1;
 	len -= len_needle;
 	while (len-- || !*haystack)

@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 16:20:56 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/04 16:39:54 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/07 17:50:18 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		ft_lstadd_back(&ret, temp);
 		lst = lst->next;
 	}
-
 	return (ret);
 }

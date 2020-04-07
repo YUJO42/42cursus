@@ -6,14 +6,14 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/03 14:14:49 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/03 16:11:34 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/07 17:46:07 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
-{	
+{
 	char			*ret;
 	unsigned int	i;
 

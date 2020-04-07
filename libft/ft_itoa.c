@@ -6,41 +6,39 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 20:26:46 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/05 01:42:23 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/07 17:56:15 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int     ft_intlen(int n)
+#include "libft.h"
+
+char	*ft_itoa(int n)
 {
-    int     cnt;
-    cnt = n == 0 ? 1 : 0;
-    while (n != 0)
-	{
-		n /= 10;
-        cnt++;
-    }
-    return (cnt);
-}
-char    *ft_itoa(int n)
-{
-    char    *dest;
-	int     len;
-	long    num;
-	
-	num = n < 0 ? -1 * (long)n : n;
-	len = n < 0 ? ft_intlen(num) + 1 : ft_intlen(num);
-	if (!(dest = (char *)malloc(sizeof(char) * (len + 1))))
+	int			cnt;
+	char		*rtn;
+	long long	temp;
+
+	temp = n;
+	if ((cnt = 1) == 1 && temp < 0)
+		cnt++;
+	if (temp < 0)
+		temp *= -1;
+	while ((temp = temp / 10) > 0)
+		cnt++;
+	if ((rtn = (char *)malloc(sizeof(char) * (cnt + 1))) == 0)
 		return (0);
-	dest[len] = 0;
-	while (len > 0)
+	temp = (long long)n * 10;
+	if (temp < 0)
 	{
-		dest[len - 1] = num % 10 + '0';
-		num /= 10;
-		len--;
+		rtn[0] = '-';
+		temp *= -1;
 	}
-	if (n < 0)
-		dest[0] = '-';
-	return (dest);
+	rtn[cnt--] = '\0';
+	if (temp == 0)
+		rtn[cnt] = '0';
+	while ((temp = temp / 10) > 0)
+		rtn[cnt--] = temp % 10 + '0';
+	return (rtn);
 }

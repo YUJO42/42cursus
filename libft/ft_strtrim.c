@@ -6,13 +6,13 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 18:19:05 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/04 17:45:15 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/07 17:51:09 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		checkSet(char a, char const *set)
+int		check_set(char a, char const *set)
 {
 	while (*set)
 	{
@@ -31,10 +31,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	first = (char *)s1;
 	last = first + ft_strlen(s1);
-	
-	while (*first && checkSet(*first, set))
+	while (*first && check_set(*first, set))
 		first++;
-	while (first < last && checkSet(*(last - 1), set))
+	while (first < last && check_set(*(last - 1), set))
 		last--;
 	len = last - first + 1;
 	if (!(result = malloc(len)))
