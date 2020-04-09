@@ -6,7 +6,7 @@
 #    By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/07 20:50:35 by yujo              #+#    #+#              #
-#    Updated: 2020/04/07 21:01:54 by yujo             ###   ########.fr        #
+#    Updated: 2020/04/07 22:32:42 by yujo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 INC = libft.h
 TEST = test.out
+SO = libft.so
 
 %.o : %.c ${INC}
 		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
