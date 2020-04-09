@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 21:29:05 by yujo              #+#    #+#             */
-/*   Updated: 2020/03/04 16:59:30 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/09 16:58:46 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,21 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	unsigned char temp[n];
+	size_t	i;
 
-	ft_memcpy(temp, src, n);
-	ft_memcpy(dst, temp, n);
+	if (!dst && !src)
+		return (NULL);
+	if (src < dst)
+		while (n--)
+			((unsigned char *)dst)[n] = ((unsigned char *)src)[n];
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+			i++;
+		}
+	}
 	return (dst);
 }

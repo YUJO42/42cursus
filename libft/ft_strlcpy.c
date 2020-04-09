@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 16:12:09 by yujo              #+#    #+#             */
-/*   Updated: 2020/04/09 16:51:20 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/09 16:57:31 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	i = 0;
 	if (dst == 0)
 		return (0);
-	if (!size)
+	if (size > 0)
 	{
-		while (dst[i])
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
 			i++;
+		}
+		dst[i] = 0;
 	}
-	while (src[i] && i + 1 < size)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = 0;
-	while (src[i])
-		i++;
-	return (i);
+	return (ft_strlen(src));
 }
