@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/23 21:51:32 by yujo              #+#    #+#             */
-/*   Updated: 2020/04/07 17:47:52 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/09 14:16:09 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t		ft_atoi(const char *str)
 {
-	int		is_minus;
+	long	is_minus;
 	size_t	result;
 
 	is_minus = 1;
