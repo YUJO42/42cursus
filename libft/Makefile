@@ -6,7 +6,7 @@
 #    By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/07 20:50:35 by yujo              #+#    #+#              #
-#    Updated: 2020/04/07 22:32:42 by yujo             ###   ########.fr        #
+#    Updated: 2020/04/09 20:42:41 by yujo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ CC = gcc
 RM = rm -f
 CFLAGS = -Wall -Wextra -Werror
 INC = libft.h
-TEST = test.out
 SO = libft.so
 
 %.o : %.c ${INC}
@@ -44,8 +43,5 @@ clean:
 
 fclean:	clean
 		${RM} ${TARGET} ${TEST}
-
-test: bonus
-		${CC} test.c -o test.out -L./ -lft -lbsd
 
 re: fclean all
