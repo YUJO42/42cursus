@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 16:22:32 by yujo              #+#    #+#             */
-/*   Updated: 2020/04/07 19:55:57 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/09 21:04:28 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ char			*ft_strnstr(const char *hatstack, const char *needle,
 size_t			ft_strlen(const char *str);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 size_t			ft_strlcpy(char *dst, const char *src, size_t size);
-size_t			ft_strcmp(const char *s1, const char *s2);
 size_t			ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char			*ft_substr(char const *s, unsigned int start, size_t len);
