@@ -6,7 +6,7 @@
 /*   By: yujo <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 07:52:54 by yujo              #+#    #+#             */
-/*   Updated: 2020/04/06 14:54:08 by yujo             ###   ########.fr       */
+/*   Updated: 2020/04/10 23:02:12 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static int	count_word(char *s, char c)
 	int		count;
 
 	count = 0;
+	if (*s == 0 && c == 0)
+		return (0);
 	while (*s == c)
 		s++;
 	s--;
@@ -32,6 +34,8 @@ static int	mapping(char *s, char **ret, char c)
 	int		j;
 
 	j = 0;
+	if (*s == 0 && c == 0)
+		return (0);
 	while (*s == c)
 		s++;
 	while (*s)
