@@ -1,6 +1,5 @@
 # Libft
 ___
-
 ### Evaluation Log
 - try 1 - 2020/04/09 (scroe : 57)
 - - used a function that wasn't in the assignment.
