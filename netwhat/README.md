@@ -188,7 +188,6 @@ ___
 
 ### 17. What is a port from an IP point of view and what is it used for when connecting to another device
 
-- **Port** : TCP나  UDP에서 어플리케이션이 상호구분을 위해서 사용하는 번호이다.
+
 
 ---
-
