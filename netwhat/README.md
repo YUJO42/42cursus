@@ -1,193 +1,48 @@
-### 1. What is an IP address
+# Netwhat
 
-- **IP Address** : 컴퓨터 네트워크에서 장치들이 서로 인식하고 통신하기 위해 사용하는 주소.
-  - IPv4 (32bit) : 일반적으로 사용하는 IP주소 (0.0.0.0 ~ 255.255.255.255 형태)
-  - IPv6 (128bit) : IPv4의 고갈로 크기를 128비트로 늘린 주소
+### 1. Evaluation Log
 
-***
-
-### 2. What is a Netmask
-
-- **Netmask** : 네트워크 주소 부분의 비트를 1로 치환한 것이 넷마스크다.
-  - IP 주소와 넷마스크를 AND연산 하면 네트워크 주소를 얻을 수 있다.
-
----
-
-### 3. What is the subnet of an IP with Netmask
-
-- **Subnet Mask** : 서브넷 마스크는 IP주소에 대한 네트워크 아이디와 호스트 아이디를 구분하기 위해 사용.
-- 표기법
-  - 슬래시 뒤에 2진수 표기일 때 '1'인 비트 수를 써서 표기할 수 있음
-  - 255.000.000.000 == 11111111 00000000 00000000 00000000 == /**8**
-  - 255.255.000.000 == 11111111 11111110 00000000 00000000 == /**15**
-  - 255.255.255.255 == 11111111 11111111 11111111 11111111 == /**32**
-
----
-
-### 4. What is the broadcast address of a subnet
-
--  **Broadcast adrress** : 특정 네트워크에 속하는 모든 호스트들이 듣게되는 주소, 네트워크 주소와는 반대로 특정 네트워크의 맨 마지막 주소를 브로드캐스트 주소로 사용
-  - C 클래스 하나로 네트워크를 구성하고 네트워크 주소가 192.168.2.0 이라고 한다면
-  - 브로드캐스트 주소는 192.168.2.255
-  - 일반적인 네트워크 IP주소는 그 네트워크에 속하는 모든 IP주소 가운데 맨 첫번째 IP 주소를 사용하고 브로드캐스트 IP주소는 그 네트워크에 속하는 모든 IP주소 가운데 맨 마지막 IP주소를 사용
-
----
-
-### 5. What are the different ways to represent an ip address with the Netmask
-
-1. 주소가 220.105.101.0 인 클래스 C 네트워크가 있을 때 초기 넷 마스크는 255.255.255.0으로 설정
-2. 네트워크를 8개의 서브 네트워크로 분할하기 위해 주소의 호스트 부분에서 3비트를 가져옴 (2^3 = 8)
-3. 네트워크 주소 220.105.101.0
-   - 11011100 01101001 01100101 00000000
-4.  넷 마스크는 255.255.255.0
-   - 11111111 11111111 11111111 00000000
-5.  8개의 서브 네트워크가 필요하기 때문에 넷 마스크는 쿼드 표기법으로
-   - 11111111 11111111 11111111 11100000 or 255.255.255.224
-6.  주소의 호스트 부분이 5비트로 줄었고 2^5간격을 기준으로 새 네트워크 주소가 생긴다.
-   - 220.105.101.0
-   - 220.105.101.32
-   - 220.105.101.64
-   - 220.105.101.96
-   - 220.105.101.128
-   - 220.105.101.160
-   - 220.105.101.192
-   - 220.105.101.224
-
----
-
-### 6. What are the differences between public and private IPs
-
-- **공인 IP주소** :  공인된 할당기관에서 할당해준 IP주소, 인터넷 상에서 사용할 수 있음.
-- **사설 IP주소** :  내부 네트워크에서만 사용하는 IP주소, 인터넷 상에서 사용할 수 없음.(폐쇄형)
-
----
-
-### 7. What is a class of IP addresses
-
-- **IP주소의 클래스** : 하나의 IP주소에서 네트워크 영역과 호스트 영역을 나누는 방법이자, 약속
-- 일반적으로 사용되는 클래스
-  - A CLASS : 1.0.0.1 ~ 126.255.255.254      // 반드시 0으로 시작
-  - B CLASS : 128.0.0.1 ~ 191.255.255.254 // 반드시 10으로 시작
-  - C CLASS : 192.0.0.1 ~ 223.255.255.254 // 반드시 110으로 시작
-- 멀티캐스트 용도로 사용되는 클래스
-  - D CLASS : 224.0.0.0 ~ 239.255.255.255 // 서브넷 마스크가 없음, 일반적으로 사용 불가
-- 예약된 (연구용으로도 사용) 클래스
-  - E CLASS : 240.0.0.0 ~ 254.255.255.254 // 네트워크와 호스트를 구별하지 않는다, 사용할 수 없다.
-
----
-
-### 8. What is TCP
-
-- **TCP**(*Transmission Control Protocol*) : 인터넷상에서 데이터를 메세지의 형태로 보내기 위해 IP와 함께 사용하는 프로토콜
-  - 연결형 서비스로 가상 회선 방식을 제공
-  - 흐름 제어 및 혼잡 제어
-  - 높은 신뢰성을 보장
-  - UDP보다 속도가 느림
-
----
-
-### 9. What is UDP
-
-- **UDP** : (*User Datagram Protocol*) : 데이터를 데이터그램 단위로 처리하는 프로토콜
-
-  - 비연결형 서비스로 데이터그램 방식을 제공
-
-  - 정보를 주고 받을 때 정보를 보내거나 받는다는 신호절차를 거치지 않는다.
-
-  - 신뢰성이 낮다.
-
-  - TCP보다 속도가 빠르다.
-
-    ![](https://t1.daumcdn.net/cfile/tistory/990C0F3359FDD3F80C)
-
----
-
-### 10. What are the network layers
-
-- 네트워크 계층은 라우팅, 패킷, 포워딩을 담당함.
-- **ICMP** (*Internet Control Message Protocol*)
-  - 인터넷 제어 메세지 프로토콜
-  - 네트워크 컴퓨터의 OS에서 오류메세지를 전송받는 데 주로 쓰임
-
----
-
-### 11. What is the OSI model
-
-- **OSI**(*Open System Interconnection*) : 컴퓨터 네트워크 프로토콜 디자인과 통신을 7계층으로 나눠 설명한 것
-
-![](https://lh3.googleusercontent.com/proxy/ZApeP9pxevdkxqlDJfmNDkdcpdQr7K-h6aeEb7z-bNUN_kK28BtekS1q3tuK89tTRCOZ9O0iRW49P7_qpEiE9ofHDqRQj_V8UxUkG1-dS9BSqSV0AhwDJqima61-XzE7v84vExbxrF5Ehqhcnh6BNqk)
-
-- 참고 : [https://ko.wikipedia.org/wiki/OSI_%EB%AA%A8%ED%98%95](https://ko.wikipedia.org/wiki/OSI_모형)
-
----
-
-### 12. What is a DHCP server and the DHCP protocol
-
-- **DHCP**(*Dynamic Host Configuration Protocol*)
-  - 호스트(서버)에서 보유하고 있는 IP를 유동적으로 관리하는 프로토콜
-  - IP 자동 할당과 분배 기능을 갖고 있다.
-
----
-
-### 13. What is a DNS server and the DNS protocol
-
-- **DNS**(*Domain Name System*)
-  - DNS는 도메인 이름과 IP주소를 서로 변환하는 역할을 한다.
-
----
-
-### 14. What are the rules to make 2 devices communicate using IP addresses
-
-- **데이터통신** : 컴퓨터와 같은 통신 기능을 갖춘 두 개 이상의 통신장치 사이에서 동선이나 광섬유, 혹은 무선 링크를 포함하는 전송 미디어를 사용해서 프로토콜에 따라 데이터로 표현되는 정보를 교환하는 과정.
-  - **LAN**(*Local Area Network*) : 근거리 통신 네트워크
-  - **WAN**(*Wide Area Network*) : 광범위 통신 네트워크
-
----
-
-### 15. How does routing work with IP
-
-- **Router** : 네트워크에서 데이터의 전달을 촉진하는 중계 장치, 데이터의 전송을 위한 경로 지정을 한다.
-
-- **IP routing** : 패킷의 목적지 IP주소 라우팅 테이블을 검색하여 해당 인터페이스로 패킷을 전송하는 동작.
-
-- **IP routing의 3가지 기본 요소**
-
-  - 경로 학습
-    - 정적 : 관리자 목적지 네트워크, 넥스트-홉/인터페이스 정보를 직접 설정하는 방식
-    - 동적 : 라우팅 프로토콜을 이용하여 경로 정보를 교환하는 방식(라우팅 업데이트)
-
-  - 경로 선출
-    - 정적 : 관리자가 네트워크 정보를 확인하여 경로를 직접 선출 설정하는 방식
-    - 동적 : 라우팅 업데이트시 포함된 메트릭 정보를 기반으로 자동으로 선출하는 방식
-
-  - 경로 관리
-    - 정적 : 관리자가 직접 추가/삭제/수정 실시
-    - 동적 : 라우팅 프로토콜 특징에 의해서 자동으로 삭제 및 수정 실시
-
----
-
-### 16. What is a default gateway for routing
-
-- **Gateway** : 컴퓨터 네트워크에서 서로 다른 통신망, 프로토콜을 사용하는 네트워크 간의 통신을 가능하게 하는 컴퓨터나 소프트웨어를 두루 일컫는 용어(라우터보다 넓은 의미)
-
-- 기본 게이트웨이는 라우팅 테이블을 작성.
-
-  | Destination | Gateway    | Genmask          | Iface |
-  | ----------- | ---------- | ---------------- | ----- |
-  | 1. 1. 1. 0  | 0. 0. 0. 0 | 255. 255. 255. 0 | eth1  |
-  | 2. 2. 2. 0  | 0. 0. 0. 0 | 255. 255. 255. 0 | eth2  |
-  | 3. 3. 3. 0  | 3. 3. 3. 2 | 255. 255. 255. 0 | eth3  |
-
-  - 1.1.1.0 / 24 네트워크는 기본 게이트웨이와 직접 연결 eth1로 이동
-  - 2.2.2.0 / 24 네트워크도 기본 게이트웨이와 직접 연결 eth2로 이동
-  - 3.3.3.0 / 24 네트워크는 3.3.3.2라는 인터페이스로 가야함으로 eth3으로 이동
-
-- 게이트웨이는 데이터가 목적지를 향하기 위해 이동해야하는 연결 된 장비의 주소
+- 
 
 ___
 
-### 17. What is a port from an IP point of view and what is it used for when connecting to another device
+### 2. Objective
 
+- to learn about **network**, and its inner workings.
 
+___
+
+### 3. What I learn
+
+- what is an IP address
+- What is the subnet of an IP with Netmask
+- What is the broadcast address of a subnet
+- What are the different ways to represent an ip address with the Netmask
+- What are the differences between public and private IPs
+- What is a class of IP addresses
+- What is TCP
+- What is UDP
+- What are the network layers
+- What is the OSI model
+- What is a DHCP server and the DHCP protocol
+- What is a DNS server and the DNS protocol
+- What are the rules to make 2 devices communicate using IP addresses 
+- How does routing work with IP
+- What is a default gateway for routing
+- What is a port from an IP point of view and what is it used for when connecting to another device
 
 ---
+
+### 4. Reference
+
+- Netwhat Subject file
+
+```
+https://cdn.intra.42.fr/pdf/pdf/9228/en.subject.pdf
+```
+
+- Netwhat Tester
+
+```
+
+```
