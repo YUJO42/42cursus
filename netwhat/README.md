@@ -2,7 +2,7 @@
 
 ### 1. Evaluation Log
 
-- try 1 - 2020/04/14 (score : 32)
+- try 1 - 2020/04/14 (score : -)
   - default: your answer files seems incorrect
     - Paste key values with vim does not copy properly. Because of this point, you must either insert the .txt file directly or check the enter and space.
 
