@@ -2,9 +2,9 @@
 
 ### 1. Evaluation Log
 
-- 
-
-___
+- try 1 - 2020/04/14 (score : 32)
+  - default: your answer files seems incorrect
+    - Paste key values with vim does not copy properly. Because of this point, you must either insert the .txt file directly or check the enter and space.
 
 ### 2. Objective
 
@@ -35,10 +35,6 @@ ___
 
 ### 4. Reference
 
-- [Netwhat Subject ]: https://cdn.intra.42.fr/pdf/pdf/9228/en.subject.pdf
+- **Netwhat subject file** : https://cdn.intra.42.fr/pdf/pdf/9228/en.subject.pdf
 
-- Netwhat Tester
-
-```
-
-```
+- **Netwhat Test** : https://github.com/rchallie/netwhat
