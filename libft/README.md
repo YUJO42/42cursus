@@ -1,12 +1,16 @@
-# Libft
+# libft
 ### 1. Evaluation Log
 - try 1 - 2020/04/09 (scroe : 57)
-- - used a function that wasn't in the assignment.
+
+  - used a function that wasn't in the assignment.
 - try 2 - 2020/04/10 (score : 82)
-- - In my split function, the segment fault
-- - In my putnbr_fd function, no verification of "fd"
+
+  - In my split function, the segment fault
+
+  - In my putnbr_fd function, no verification of "fd"
 - try 3 - 2020/04/12 (score : 115)
-- - OK!
+
+  - **OK**
 ___
 ### 2. Objective
 - to code a C library regrouping functions.
@@ -74,19 +78,19 @@ t_list			*ft_lstlast(t_list *lst);
 t_list			*ft_lstnew(void *content);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 ```
+---
+
 ### 4. Reference
-- Libft Subject file
-```
-https://cdn.intra.42.fr/pdf/pdf/9448/en.subject.pdf
-```
-- Libft Tester
-```
-// war-machine - **Recommend**
-https://github.com/ska42/libft-war-machine
 
-// unit-test - **Recommend**
-https://github.com/alelievr/libft-unit-test
+- **Subject File - libft**
+  - **https://cdn.intra.42.fr/pdf/pdf/9448/en.subject.pdf**
+- **Tester - libft**
 
-// Libfttest
-https://github.com/jtoty/Libftest
-```
+  - war-machine
+    - https://github.com/ska42/libft-war-machine
+
+  - unit-test
+    - https://github.com/alelievr/libft-unit-test
+
+  - Libfttest
+    - https://github.com/jtoty/Libftest

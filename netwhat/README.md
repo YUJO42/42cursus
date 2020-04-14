@@ -1,4 +1,4 @@
-# Netwhat
+# netwhat
 
 ### 1. Evaluation Log
 
@@ -35,6 +35,8 @@ ___
 
 ### 4. Reference
 
-- **Netwhat subject file** : https://cdn.intra.42.fr/pdf/pdf/9228/en.subject.pdf
-
-- **Netwhat Test** : https://github.com/rchallie/netwhat
+- **Subject File - netwhat** 
+- https://cdn.intra.42.fr/pdf/pdf/9228/en.subject.pdf
+- **Tester - netwhat**
+  - netwhat training
+    - https://github.com/rchallie/netwhat
