@@ -1,21 +1,21 @@
 ## Practice Problem 
 
-### 1. IP address
+### 01. IP address
 
 ---
 
 #### Q. What is the size of an IPv4 address?
 
 ``` 
-1. 128 bits
-2. 32 bits
-3. 64 miles
-4. 16 bits
-5. 8 bits
-6. 64 bytes
-7. 128 bytes
+A. 128 bits
+B. 32 bits
+C. 64 miles
+D. 16 bits
+E. 8 bits
+F. 64 bytes
+G. 128 bytes
 
-Answer : 2. 32 bit
+Answer : B. 32 bit
 Solution : IPv4의 주소는 32bit 형태이다. 2진수로 표기한다. (0.0.0.0 ~ 255.255.255.255)
 ```
 
@@ -24,15 +24,15 @@ Solution : IPv4의 주소는 32bit 형태이다. 2진수로 표기한다. (0.0.0
 #### Q. What is the size of an IPv6 address?
 
 ```
-1. 128 bits
-2. 32 bits
-3. 64 miles
-4. 16 bits
-5. 8 bits
-6. 64 bytes
-7. 128 bytes
+A. 128 bits
+B. 32 bits
+C. 64 miles
+D. 16 bits
+E. 8 bits
+F. 64 bytes
+G. 128 bytes
 
-Answer : 1. 128 bits
+Answer : A. 128 bits
 Solution : IPv6의 주소는 128bit 형태이다. 16진수로 표기한다. (0000:0000:.......)
 ```
 
@@ -75,7 +75,7 @@ Solution : A Class는 0 ~ 127의 범위가 할당되어 가장 많은 주소를 
 3. Class C
 4. Class E
 
-Answer : Class F
+Answer : 2. Class F
 Solution : IP Class는 A, B, C, D, E 까지 있다.
 ```
 
