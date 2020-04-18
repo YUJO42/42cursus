@@ -5,6 +5,11 @@
 - try 1 - 2020/04/14 (score : -)
   - default: your answer files seems incorrect
     - Paste key values with vim does not copy properly. Because of this point, you must either insert the .txt file directly or check the enter and space.
+- try 2 - 2020/04/16 (score: 95)
+  - I need to find the most assigned IP  A class, I found class C, which is the IP class assigned by default...
+    - read the questions carefully...
+- try 3 - 2020/04/17 (score : 100)
+  - **OK**
 
 ### 2. Objective
 
