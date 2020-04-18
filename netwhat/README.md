@@ -10,13 +10,11 @@
     - read the questions carefully...
 - try 3 - 2020/04/17 (score : 100)
   - **OK**
-
+___
 ### 2. Objective
 
 - to learn about **network**, and its inner workings.
-
 ___
-
 ### 3. What I learn
 
 - what is an IP address
@@ -35,9 +33,7 @@ ___
 - How does routing work with IP
 - What is a default gateway for routing
 - What is a port from an IP point of view and what is it used for when connecting to another device
-
 ---
-
 ### 4. Reference
 
 - **Subject File - netwhat** 
