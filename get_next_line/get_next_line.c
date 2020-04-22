@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/19 18:17:19 by yujo              #+#    #+#             */
-/*   Updated: 2020/04/19 18:17:22 by yujo             ###   ########.fr       */
+/*   Created: 2020/04/20 14:28:58 by yujo              #+#    #+#             */
+/*   Updated: 2020/04/21 14:44:07 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-#include <fcntl.h>
 
-int		main(void)
+int		get_next_line(int fd, char **line)
 {
-	char	*line;
-	int		ret;
-	int		fd;
+	static	_static[1024]; //OPEN_MAX
+	char	*_buffer;
+	int		byte;
+	char	*temp;
+	char	*next_line_index;
 
-	fd = open("test", O_RDONLY);
-//	fd = 0;
-	while ((ret = get_next_line(fd, &line)) > 0)
-	{
-		printf("get_next_line : %s\n", line);
-		printf("return value : %d\n\n", ret);
-		free(line);
-	}
-	printf("get_next_line : %s\n", line);
-	printf("return value : %d\n", ret);
-	free(line);
-	return (0);
+	if (fd < 0 || 
 }
