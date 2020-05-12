@@ -83,14 +83,9 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 ### 4. Reference
 
 - **Subject File - libft**
-  - **https://cdn.intra.42.fr/pdf/pdf/9448/en.subject.pdf**
+  - https://cdn.intra.42.fr/pdf/pdf/9448/en.subject.pdf**
 - **Tester - libft**
 
-  - war-machine
-    - https://github.com/ska42/libft-war-machine
-
-  - unit-test
-    - https://github.com/alelievr/libft-unit-test
-
-  - Libfttest
-    - https://github.com/jtoty/Libftest
+  - [war-machine](https://github.com/ska42/libft-war-machine)
+  - [unit-test](https://github.com/alelievr/libft-unit-test)
+  - [Libfttest](https://github.com/jtoty/Libftest)
