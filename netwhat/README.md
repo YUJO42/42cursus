@@ -1,6 +1,6 @@
 # netwhat
 
-### 1. Evaluation Log
+### 1. RESULT
 - **100 / 100**
 ___
 ### 2. Objective
