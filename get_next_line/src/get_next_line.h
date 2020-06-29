@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/20 14:28:58 by yujo              #+#    #+#             */
-/*   Updated: 2020/05/23 15:55:20 by yujo             ###   ########.fr       */
+/*   Created: 2020/06/29 14:56:43 by yujo              #+#    #+#             */
+/*   Updated: 2020/06/29 17:39:47 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int		get_next_line(int fd, char **line)
-{
-	static	_static[1024]; //OPEN_MAX
-	char	*_buffer;
-	int		byte;
-	char	*temp;
-	char	*next_line_index;
+# include <stdio.h>
+# include <unistd.h>
+# include <stddef.h>
+# include <limits.h>
 
-	if (fd < 0 || 
-:
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+#endif
+
+
+
+#endif
