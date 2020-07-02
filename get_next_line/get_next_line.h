@@ -11,27 +11,27 @@
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#define GET_NEXT_LINE_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stddef.h>
-# include <limits.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stddef.h>
+#include <limits.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 8
-# endif
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 8
+#endif
 
-char    *ft_strnew(size_t size);
-void	ft_strdel(char **str);
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
+char *ft_strnew(size_t size);
+void ft_strdel(char **str);
+char *ft_strchr(const char *s, int c);
+size_t ft_strlcat(char *dst, const char *src, size_t size);
+size_t ft_strlcpy(char *dst, const char *src, size_t size);
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-int     ft_new_line(char **save_line, char **line, int fd, int ret);
-int     get_next_line(int fd, char **line);
+char *ft_strsub(char const *s, unsigned int start, size_t len);
+char *ft_strdup(const char *s);
+char *ft_strjoin(char const *s1, char const *s2);
+int ft_new_line(char **save_line, char **line, int fd, int ret);
+int get_next_line(int fd, char **line);
 
 #endif

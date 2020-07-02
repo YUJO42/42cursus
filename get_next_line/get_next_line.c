@@ -12,73 +12,73 @@
 
 #include "get_next_line.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+char *ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*s2;
-	size_t	i;
+    char *s2;
+    size_t i;
 
-	i = 0;
-	if (s == NULL)
-		return (0);
-	s2 = (char*)malloc(sizeof(char) * (len + 1));
-	if (s2 == NULL)
-		return (NULL);
-	while (i < len)
-	{
-		s2[i] = s[start + i];
-		i++;
-	}
-	s2[i] = '\0';
-	return (s2);
+    i = 0;
+    if (s == NULL)
+        return (0);
+    s2 = (char *)malloc(sizeof(char) * (len + 1));
+    if (s2 == NULL)
+        return (NULL);
+    while (i < len)
+    {
+        s2[i] = s[start + i];
+        i++;
+    }
+    s2[i] = '\0';
+    return (s2);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	len;
-	size_t	len2;
-	char	*result;
+    size_t len;
+    size_t len2;
+    char *result;
 
-	len = 0;
-	len2 = 0;
-	while (s1[len])
-		len++;
-	while (s2[len2])
-		len2++;
-	len += (len2 + 1);
-	result = malloc(len);
-	if (result == 0)
-		return (0);
-	ft_strlcpy(result, s1, len);
-	ft_strlcat(result, s2, len);
-	return (result);
+    len = 0;
+    len2 = 0;
+    while (s1[len])
+        len++;
+    while (s2[len2])
+        len2++;
+    len += (len2 + 1);
+    result = malloc(len);
+    if (result == 0)
+        return (0);
+    ft_strlcpy(result, s1, len);
+    ft_strlcat(result, s2, len);
+    return (result);
 }
 
-char	*ft_strdup(const char *s)
+char *ft_strdup(const char *s)
 {
-	size_t	len;
-	size_t	i;
-	char	*result;
+    size_t len;
+    size_t i;
+    char *result;
 
-	len = 0; 
+    len = 0;
     while (s[len])
         len++;
-	if (!(result = malloc(len + 1)))
-		return (0);
-	i = 0;
-	while (len)
-	{
-		result[i] = *s++;
-		len--;
-		i++;
-	}
-	result[i] = '\0';
-	return (result);
+    if (!(result = malloc(len + 1)))
+        return (0);
+    i = 0;
+    while (len)
+    {
+        result[i] = *s++;
+        len--;
+        i++;
+    }
+    result[i] = '\0';
+    return (result);
 }
 
-int     ft_new_line(char **save_line, char **line, int fd, int ret)
+int ft_new_line(char **save_line, char **line, int fd, int ret)
 {
-    char    *temp;
-    int     len;
+    char *temp;
+    int len;
 
     len = 0;
     while (save_line[fd][len] != '\n' && save_line[fd][len] != '\0')
@@ -102,12 +102,12 @@ int     ft_new_line(char **save_line, char **line, int fd, int ret)
     return (1);
 }
 
-int     get_next_line(int fd, char **line)
+int get_next_line(int fd, char **line)
 {
     static char *save_line[OPEN_MAX];
-    char        buffer[BUFFER_SIZE + 1];
-    char        *temp;
-    int         ret;
+    char buffer[BUFFER_SIZE + 1];
+    char *temp;
+    int ret;
 
     if (fd < 0 || line == NULL)
         return (-1);
@@ -122,7 +122,7 @@ int     get_next_line(int fd, char **line)
         if (ft_strchr(buffer, '\n'))
             break;
     }
-    
+
     if (ret < 0)
         return (-1);
     else if (ret == 0 && (save_line[fd] || save_line[fd][0] == '\0'))

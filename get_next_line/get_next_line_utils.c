@@ -12,10 +12,10 @@
 
 #include "get_next_line.h"
 
-char	*ft_strnew(size_t size)
+char *ft_strnew(size_t size)
 {
-	char	*str;
-	size_t	i;
+	char *str;
+	size_t i;
 
 	i = 0;
 	str = (char *)malloc(size + 1);
@@ -27,17 +27,17 @@ char	*ft_strnew(size_t size)
 	return (str);
 }
 
-void	ft_strdel(char **str)
+void ft_strdel(char **str)
 {
 	if (str)
 	{
 		free(*str);
 		*str = NULL;
 	}
-	return ;
+	return;
 }
 
-char	*ft_strchr(const char *s, int c)
+char *ft_strchr(const char *s, int c)
 {
 	while (*s != (unsigned char)c)
 	{
@@ -45,12 +45,12 @@ char	*ft_strchr(const char *s, int c)
 			return (0);
 		s++;
 	}
-	return ((char*)s);
+	return ((char *)s);
 }
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	while (*dst && i < size)
@@ -75,7 +75,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (i);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t i;
 	size_t len;
