@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:31:03 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/07 01:24:39 by yujo             ###   ########.fr       */
+/*   Updated: 2020/07/07 02:27:14 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*s;
+	char	*s2;
 	size_t	i;
 
 	i = 0;
 	if (s == NULL)
 		return (0);
-	s = (char *)malloc(sizeof(char) * (len + 1));
-	if (s == NULL)
+	s2 = (char*)malloc(sizeof(char) * (len + 1));
+	if (s2 == NULL)
 		return (NULL);
 	while (i < len)
 	{
-		s[i] = s[start + i];
+		s2[i] = s[start + i];
 		i++;
 	}
-	s[i] = '\0';
-	return (s);
+	s2[i] = '\0';
+	return (s2);
 }
 
 char	*ft_strjoin(char const *s1, char const *s2)
