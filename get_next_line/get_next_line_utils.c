@@ -6,16 +6,16 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:30:59 by yujo              #+#    #+#             */
-/*   Updated: 2020/06/30 03:11:26 by yujo             ###   ########.fr       */
+/*   Updated: 2020/07/07 01:24:40 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char *ft_strnew(size_t size)
+char	*ft_strnew(size_t size)
 {
-	char *str;
-	size_t i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
 	str = (char *)malloc(size + 1);
@@ -27,17 +27,17 @@ char *ft_strnew(size_t size)
 	return (str);
 }
 
-void ft_strdel(char **str)
+void	ft_strdel(char **str)
 {
 	if (str)
 	{
 		free(*str);
 		*str = NULL;
 	}
-	return;
+	return ;
 }
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
 	while (*s != (unsigned char)c)
 	{
@@ -48,9 +48,9 @@ char *ft_strchr(const char *s, int c)
 	return ((char *)s);
 }
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (*dst && i < size)
@@ -75,10 +75,10 @@ size_t ft_strlcat(char *dst, const char *src, size_t size)
 	return (i);
 }
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t i;
-	size_t len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	if (dst == 0)
