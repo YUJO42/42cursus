@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:31:02 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/07 01:24:39 by yujo             ###   ########.fr       */
+/*   Updated: 2020/07/11 06:19:16 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,9 @@
 #  define BUFFER_SIZE 8
 # endif
 
-char	*ft_strnew(size_t size);
-void	ft_strdel(char **str);
-char	*ft_strchr(const char *s, int c);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-
-char	*ft_strsub(char const *s, unsigned int start, size_t len);
-char	*ft_strdup(const char *s);
-char	*ft_strjoin(char const *s1, char const *s2);
-int		ft_new_line(char **save_line, char **line, int fd, int ret);
 int		get_next_line(int fd, char **line);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s1);
 
 #endif

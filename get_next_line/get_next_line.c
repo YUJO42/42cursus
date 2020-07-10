@@ -6,125 +6,104 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:31:03 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/07 02:27:14 by yujo             ###   ########.fr       */
+/*   Updated: 2020/07/11 06:21:12 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+static char		*ft_strcpy_nl(char **in, int i)
 {
-	char	*s2;
-	size_t	i;
+	int		j;
+	char	*res;
+	char	*tmp;
+
+	while ((*in)[i] != '\0' && (*in)[0] != '\n')
+		if ((*in)[++i] == '\n')
+			break ;
+	res = malloc(sizeof(char) * (i + 1));
+	res[i] = '\0';
+	j = i;
+	if (*(*in + i + 1) != '\0' && *(*in + i) != '\0')
+		tmp = ft_strdup(*in + i + 1);
+	else if (!*(*in + i))
+		tmp = ft_strdup("");
+	else
+		tmp = NULL;
+	while (--j >= 0)
+	{
+		res[j] = (*in)[j];
+		(*in)[j] = 0;
+	}
+	free(*in);
+	*in = tmp;
+	return (res);
+}
+
+static int		has_newline(char *str)
+{
+	int		i;
+	int		n;
 
 	i = 0;
-	if (s == NULL)
-		return (0);
-	s2 = (char*)malloc(sizeof(char) * (len + 1));
-	if (s2 == NULL)
-		return (NULL);
-	while (i < len)
+	n = 0;
+	while (str[i])
 	{
-		s2[i] = s[start + i];
+		if (str[i] == '\n')
+			n++;
 		i++;
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (n);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+static int		process(int fd, char **s, int y, char **line)
 {
-	size_t	len;
-	size_t	len2;
-	char	*result;
-
-	len = 0;
-	len2 = 0;
-	while (s1[len])
-		len++;
-	while (s2[len2])
-		len2++;
-	len += (len2 + 1);
-	result = malloc(len);
-	if (result == 0)
-		return (0);
-	ft_strlcpy(result, s1, len);
-	ft_strlcat(result, s2, len);
-	return (result);
-}
-
-char	*ft_strdup(const char *s)
-{
-	size_t	len;
-	size_t	i;
-	char	*result;
-
-	len = 0;
-	while (s[len])
-		len++;
-	if (!(result = malloc(len + 1)))
-		return (0);
-	i = 0;
-	while (len)
+	if (y > 0)
 	{
-		result[i] = *s++;
-		len--;
-		i++;
+		*line = ft_strcpy_nl(&s[fd], 0);
+		return (1);
 	}
-	result[i] = '\0';
-	return (result);
+	else if (s[fd])
+	{
+		if (has_newline(s[fd]) > 0)
+		{
+			*line = ft_strcpy_nl(&s[fd], 0);
+			return (1);
+		}
+		*line = ft_strcpy_nl(&s[fd], 0);
+		free(s[fd]);
+		s[fd] = NULL;
+	}
+	else
+		*line = ft_strdup("");
+	return (0);
 }
 
-int		ft_new_line(char **save_line, char **line, int fd, int ret)
+int				get_next_line(int fd, char **line)
 {
-	char	*temp;
-	int		len;
+	char		buf[BUFFER_SIZE + 1];
+	int			n;
+	int			y;
+	static char	*s[OPEN_MAX];
+	char		*tmp;
 
-	len = 0;
-	while (save_line[fd][len] != '\n' && save_line[fd][len] != '\0')
-		len++;
-	if (save_line[fd][len] == '\n')
-	{
-		*line = ft_strsub(save_line[fd], 0, len);
-		temp = ft_strdup(save_line[fd] + len + 1);
-		free(save_line[fd]);
-		save_line[fd] = temp;
-		if (save_line[fd][0] == '\0')
-			ft_strdel(&save_line[fd]);
-	}
-	else if (save_line[fd][len] == '\0')
-	{
-		if (ret == BUFFER_SIZE)
-			return (get_next_line(fd, line));
-		*line = ft_strdup(save_line[fd]);
-		ft_strdel(&save_line[fd]);
-	}
-	return (1);
-}
-
-int		get_next_line(int fd, char **line)
-{
-	static char		*save_line[OPEN_MAX];
-	char			buffer[BUFFER_SIZE + 1];
-	char			*temp;
-	int				ret;
-
-	if (fd < 0 || line == NULL)
+	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
-	while ((ret = read(fd, buffer, BUFFER_SIZE)) > 0)
+	y = 0;
+	if (s[fd] && BUFFER_SIZE >= 8 && has_newline(s[fd]) > 0)
+		return (process(fd, s, 1, line));
+	while ((n = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
-		buffer[ret] = '\0';
-		if (save_line[fd] == NULL)
-			save_line[fd] = ft_strnew(1);
-		temp = ft_strjoin(save_line[fd], buffer);
-		free(save_line[fd]);
-		save_line[fd] = temp;
-		if (ft_strchr(buffer, '\n'))
+		buf[n] = '\0';
+		y = has_newline(buf);
+		tmp = s[fd];
+		s[fd] = ft_strjoin(tmp, buf);
+		free(tmp);
+		if (y > 0)
 			break ;
 	}
-	if (ret < 0)
+	if (n < 0)
 		return (-1);
-	else if (ret == 0 && (save_line[fd] || save_line[fd][0] == '\0'))
-		return (0);
-	return (ft_new_line(save_line, line, fd, ret));
+	return (process(fd, s, y, line));
 }
+
