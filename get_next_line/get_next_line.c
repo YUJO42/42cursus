@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:31:03 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/11 06:21:12 by yujo             ###   ########.fr       */
+/*   Updated: 2020/07/27 18:48:09 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,3 @@ int				get_next_line(int fd, char **line)
 		return (-1);
 	return (process(fd, s, y, line));
 }
-
