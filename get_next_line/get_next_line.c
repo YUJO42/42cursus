@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 21:31:03 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/27 18:48:09 by yujo             ###   ########.fr       */
+/*   Updated: 2020/07/29 14:57:51 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,6 @@ int				get_next_line(int fd, char **line)
 	if (fd < 0 || !line || BUFFER_SIZE <= 0)
 		return (-1);
 	y = 0;
-	if (s[fd] && BUFFER_SIZE >= 8 && has_newline(s[fd]) > 0)
-		return (process(fd, s, 1, line));
 	while ((n = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[n] = '\0';
