@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf_width.c                                     :+:      :+:    :+:   */
+/*   ft_printf_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/01 19:33:20 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/01 19:59:54 by yujo             ###   ########.fr       */
+/*   Created: 2020/08/01 20:47:05 by yujo              #+#    #+#             */
+/*   Updated: 2020/08/01 20:58:32 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// 처리해야될 flag "-" "0" "."(정밀도) "*", width
-// 처리해야될 서식지정자 c s p d i u x X %
+#include "ft_printf.h"
 
-#include <stdio.h>
-
-int main(void)
+void	ft_putchar_fd(char c, int fd)
 {
-	long long	a = 0x123456abcdef;
-
-	printf("|%#-20.14llx|\n", a);
+	write(fd, &c, 1);
 }
