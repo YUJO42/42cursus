@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/01 20:59:25 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/01 22:12:56 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-typedef struct	s_tag
+typedef struct	s_struct
 {
-	//
-}				t_tag
+	int			count;
+}				t_struct
 
 void			ft_putchar_fd(char c);
 

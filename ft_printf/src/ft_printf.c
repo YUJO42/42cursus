@@ -6,7 +6,14 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:22:59 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/01 20:23:08 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/01 22:15:24 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include ""
+
+int ft_printf(const char *format, ...)
+{
+	va_list ap;
+	t_struct ;
+}
