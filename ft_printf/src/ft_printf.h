@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/01 22:12:56 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/02 12:49:13 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 typedef struct	s_struct
 {
 	int			count;
-}				t_struct
+}				t_struct;
 
-void			ft_putchar_fd(char c);
+void	ft_putchar_fd(char c);
 
 #endif
