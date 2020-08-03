@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/29 01:49:38 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/29 02:10:59 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/03 20:57:27 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main()
     printValues("i", 10);                                       // 정수
     printValues("ci", 'a', 10);                                 // 문자, 정수
     printValues("dci", 1.234567, 'a', 10);                      // 실수, 문자, 정수
-    printValues("sicd", "Hello, world!", 10, 'a', 1.234567);    // 문자열, 정수, 문자, 실수
+    printValues("s i c d", "Hello, world!", 10, 'a', 1.234567);    // 문자열, 정수, 문자, 실수
 
     return 0;
 }

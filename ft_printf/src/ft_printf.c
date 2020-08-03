@@ -6,23 +6,11 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:22:59 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/03 20:54:02 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/03 22:55:02 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdbool.h>
-# include <string.h>
-
-# define FORMAT "cspdiuxX%"
-
-typedef struct	s_struct
-{
-	int			count;
-}				t_struct;
-
+#include "ft_printf.h"
 
 char	ft_strchr(char *str, char c)
 {
@@ -53,13 +41,13 @@ void	ft_format_checker(const char **format)
 	if (checker == '%')
 		ft_putchar('%');
 	else if (checker == 'c')
-		ft_putchar('c');
+		ft_putchar('V');
 	else if (checker == 's')
 		printf("%c", checker);
 	else if (checker == 'p')
 		printf("%c", checker);
 	else if (checker == 'd')
-		ft_putchar('d');
+		ft_putchar('V');
 	else if (checker == 'i')
 		printf("%c", checker);
 	else if (checker == 'u')
@@ -70,15 +58,11 @@ void	ft_format_checker(const char **format)
 		printf("%c", checker);
 }
 
-int ft_printf(const char *format, ...)
+int ft_printf_process(const char *format, va_list ap)
 {
-	int i;
-	int output;
-	va_list ap;
+	int count;
 
-	i = 0;
-
-	va_start(ap)
+	count = 0;
 	while (*format)
 	{
 		if (*format != '%' && *format)
@@ -88,13 +72,26 @@ int ft_printf(const char *format, ...)
 			format++;
 			ft_format_checker(&format);
 		}
+		count++;
 		format++;
 	}
-	va_end()
+	return count;
+}
 
-	return 0;
+int ft_printf(const char *format, ...)
+{
+	va_list	ap;
+	int		byte;
+
+	va_start(ap, format);
+	byte = ft_printf_process((char *)format, ap);
+	va_end(ap);
+	return byte;
 }
 
 int main(void) {
-	ft_printf("asdasdasdasdas  | %d |asdasdasdasda", 1, "asdasdasd";
+	int a = ft_printf("asdasdasdasdas  | %c |asdasdasdasda", 'O');
+	printf("\n");
+	printf("%d\n", a);
+	printf("asdasdasdasdas  | %c |asdasdasdasda\n", 'O');
 }
