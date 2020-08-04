@@ -5,14 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/04 08:07:45 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/04 11:14:58 by yujo             ###   ########.fr       */
+/*   Created: 2020/08/01 20:22:59 by yujo              #+#    #+#             */
+/*   Updated: 2020/08/04 08:06:59 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_format_checker(const char **format)
+char	ft_strchr(char *str, char c)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return str[i];
+		i++;
+	}
+	return 0;
+}
+
+void	ft_putchar(char c, t_struct *bag)
+{
+	write(1, &c, 1);
+	bag->count++;
+}
+
+void	ft_format_checker(const char **format, t_struct bag)
 {
 	char checker;
 
@@ -39,14 +59,10 @@ void	ft_format_checker(const char **format)
 	// 	printf("%c", checker);
 }
 
-void	ft_putchar(char c, t_struct *bag)
+int ft_printf_process(const char *format, va_list ap)
 {
-	write(1, &c, 1);
-	bag->count++;
-}
+	bag.count = 0;
 
-void	ft_printf_start(const char *format, t_struct *bag)
-{
 	while (*format)
 	{
 		if (*format != '%' && *format)
@@ -54,20 +70,22 @@ void	ft_printf_start(const char *format, t_struct *bag)
 		else if (*format == '%')
 		{
 			format++;
-			ft_format_checker(*format);
+			ft_format_checker(&format, bag);
 		}
 		format++;
 	}
+	return bag.count;
 }
 
-int 	ft_printf(const char *format, ...)
+int ft_printf(const char *format, ...)
 {
 	t_struct	bag;
+	int		byte;
 
 	va_start(bag.ap, format);
-	ft_printf_start(&format, &bag);
+	byte = ft_printf_process((char *)format, bag.ap);
 	va_end(bag.ap);
-	return (bag.count);
+	return byte;
 }
 
 int main(void) {
