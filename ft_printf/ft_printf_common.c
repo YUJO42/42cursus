@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_codo.c                                        :+:      :+:    :+:   */
+/*   ft_printf_common.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/29 01:35:57 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/29 01:45:39 by yujo             ###   ########.fr       */
+/*   Created: 2020/08/04 16:02:15 by yujo              #+#    #+#             */
+/*   Updated: 2020/08/08 17:29:37 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
+#include "ft_printf.h"
 
-void	printNumbers(int args, ...)
+void ft_putchar(char c)
 {
-	printf("%d ", args);
-	va_list ap;
-	va_start(ap, args);
-
+	write(1, &c, 1);
 }
-
-int 	main()
-{
-	printNumbers(2, 10, 230);
-	printNumbers(2, 10, 20);
-	printNumbers(3, 10, 20, 30);
-	printNumbers(4, 10, 20, 30, 40);
-	printNumbers(6, 10, 20, 30, 40, 60);
-
-	return 0;
-}
-

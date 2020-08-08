@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.c                                           :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/02 14:54:08 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/02 14:56:46 by yujo             ###   ########.fr       */
+/*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
+/*   Updated: 2020/08/08 17:29:49 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FT_PRINTF_H
+#define FT_PRINTF_H
+
+// # include <stdio.h>
+
 #include <stdio.h>
 
-int main(int argc, char **argv)
-{
-	long long	a = 0x123456abcdef;
-	int			b = 0xffffffff;
-	float		c = 1234.1234;
+#include <stdarg.h>
+#include <unistd.h>
+#include <stdbool.h>
+#include <string.h>
 
-	printf("%e\n", c);
-	printf("%u\n", b);
-	printf("%d\n", b);
-	printf("|%#-20.14llx|\n", a);
-}
+#define FORMAT "cspdiuxX%"
+#define FLAG "-+0#"
+
+typedef struct s_struct
+{
+	int count;
+	int zero_flag;	// 0
+	int minus_flag; // -
+	int dot_flag;	// .
+	int star_flag;	// *
+
+	va_list ap;
+} t_struct;
+
+void ft_putchar(char c);
+// void ft_handle_flag(**form, t_struct *carry)
+
+#endif
