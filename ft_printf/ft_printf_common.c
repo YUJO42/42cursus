@@ -6,13 +6,14 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 16:02:15 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/08 17:29:37 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/08 17:51:13 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_putchar(char c)
+int ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return 1;
 }

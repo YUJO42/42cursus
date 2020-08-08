@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/08 17:29:49 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/08 17:52:31 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_struct
 	va_list ap;
 } t_struct;
 
-void ft_putchar(char c);
+int ft_putchar(char c);
 // void ft_handle_flag(**form, t_struct *carry)
 
 #endif
