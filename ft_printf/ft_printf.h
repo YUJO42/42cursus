@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/08 17:52:31 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/09 18:19:13 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,23 @@
 
 #define FORMAT "cspdiuxX%"
 #define FLAG "-+0#"
+#define ON 1
+#define OFF 0
+
+// "." "0" "-" "*"
+// c s p d i u x X %
 
 typedef struct s_struct
 {
-	int count;
-	int zero_flag;	// 0
-	int minus_flag; // -
-	int dot_flag;	// .
-	int star_flag;	// *
-
-	va_list ap;
-} t_struct;
+	va_list		va;
+	int			count;
+	int			dot;	// .
+	int			zero;	// 0 = precision
+	int			minus;  // -
+	int			star;	// *
+	int			width;
+	char		specifier;
+}				t_struct;
 
 int ft_putchar(char c);
 // void ft_handle_flag(**form, t_struct *carry)

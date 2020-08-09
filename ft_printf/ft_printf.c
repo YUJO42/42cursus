@@ -6,41 +6,53 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/08 17:54:55 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/09 18:18:30 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf_start(char *format, va_list ap)
+void	reset_struct(t_struct *tag)
 {
-	t_struct tag;
+	tag->dot = ON;
+	tag->zero = ON;
+	tag->minus = ON;
+	tag->star = ON;
+	// tag->width = 0;
+	// tag->hexa = 0;
+	// tag->big_hexa = 0;
+}
 
-	tag.count = 0;
+int		start_process(char *format, t_struct *tag)
+{
+	tag->count = 0;
 	while (*format)
 	{
 		while (*format != '%' && *format)
 		{
-			tag.count += ft_putchar(*format);
+			tag->count += ft_putchar(*format);
 			format++;
 		}
 		if (*format == '%')
 		{
 			format++;
+			reset_struct(&tag);
 		}
 	}
+
+	 printf("\n%d", tag->count);
 
 	return 1;
 }
 
-int		ft_printf(const char **format, ...)
+int		ft_printf(const char *format, ...)
 {
-	va_list ap;
-	int		count;
+	t_struct	tag;
+	int			count;
 
-	va_start(ap, format);
-	count = ft_printf_start((char *)format, ap);
-	va_end(ap);
+	va_start(tag.va, format);
+	count = start_process((char *)format, &tag);
+	va_end(tag.va);
 
 	return count;
 }
