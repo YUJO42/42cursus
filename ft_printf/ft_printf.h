@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 17:03:20 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 17:12:39 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ typedef struct s_struct
 	char		specifier; // 서싟지정자
 }				t_struct;
 
-int ft_putchar(char c);
-// void ft_handle_flag(**form, t_struct *carry)
+int 	ft_putchar(char c);
+void	flag_parser(char **format, t_struct *tag);
+void	width_parser(char **format, t_struct *tag);
+void	precision_parser(char **format, t_struct *tag);
 
 #endif

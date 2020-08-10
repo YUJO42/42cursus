@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 16:09:16 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 17:16:18 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reset_struct(t_struct *tag)
 	tag->dot = OFF;
 	tag->zero = OFF;
 	tag->minus = OFF;
-	tag->star = OFF;
+	tag->precision = OFF;
 	tag->width = 0;
 }
 
@@ -38,8 +38,17 @@ void	start_process(char *format, t_struct *tag)
 			flag_parser(&format, tag);
 			width_parser(&format, tag);
 			precision_parser(&format, tag);
+
 		}
 	}
+
+	// @@@ TEST PARSER @@@
+
+	// printf("\n| dot       %d      |", tag->dot);
+	// printf("\n| zero      %d      |", tag->zero);
+	// printf("\n| minus     %d      |", tag->minus);
+	// printf("\n| width     %d      |", tag->width);
+	// printf("\n| precision %d      |", tag->dot);
 }
 
 int		ft_printf(const char *format, ...)
@@ -56,6 +65,6 @@ int		ft_printf(const char *format, ...)
 
 int main(void)
 {
-	ft_printf("asdasdasd | %d | asdasdasd", 10);
+	ft_printf("asdasdasd | %0*.0d | asdasdasd", 10);
 	// printf("asdasdasd%15.10dqweqwe", 1123456789);
 }
