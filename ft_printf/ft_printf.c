@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/09 18:18:30 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 16:09:16 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,14 @@
 
 void	reset_struct(t_struct *tag)
 {
-	tag->dot = ON;
-	tag->zero = ON;
-	tag->minus = ON;
-	tag->star = ON;
-	// tag->width = 0;
-	// tag->hexa = 0;
-	// tag->big_hexa = 0;
+	tag->dot = OFF;
+	tag->zero = OFF;
+	tag->minus = OFF;
+	tag->star = OFF;
+	tag->width = 0;
 }
 
-int		start_process(char *format, t_struct *tag)
+void	start_process(char *format, t_struct *tag)
 {
 	tag->count = 0;
 	while (*format)
@@ -36,13 +34,12 @@ int		start_process(char *format, t_struct *tag)
 		if (*format == '%')
 		{
 			format++;
-			reset_struct(&tag);
+			reset_struct(tag);
+			flag_parser(&format, tag);
+			width_parser(&format, tag);
+			precision_parser(&format, tag);
 		}
 	}
-
-	 printf("\n%d", tag->count);
-
-	return 1;
 }
 
 int		ft_printf(const char *format, ...)
@@ -51,13 +48,14 @@ int		ft_printf(const char *format, ...)
 	int			count;
 
 	va_start(tag.va, format);
-	count = start_process((char *)format, &tag);
+	start_process((char *)format, &tag);
 	va_end(tag.va);
 
-	return count;
+	return tag.count;
 }
 
 int main(void)
 {
 	ft_printf("asdasdasd | %d | asdasdasd", 10);
+	// printf("asdasdasd%15.10dqweqwe", 1123456789);
 }

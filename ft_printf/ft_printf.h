@@ -6,14 +6,12 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/09 18:19:13 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 17:03:20 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 #define FT_PRINTF_H
-
-// # include <stdio.h>
 
 #include <stdio.h>
 
@@ -34,12 +32,12 @@ typedef struct s_struct
 {
 	va_list		va;
 	int			count;
-	int			dot;	// .
-	int			zero;	// 0 = precision
+	int			width;  // 전체의 폭
+	int			dot;	// . = 자리수 표시
+	int			zero;	// 0 = 공백만큼 0채움
 	int			minus;  // -
-	int			star;	// *
-	int			width;
-	char		specifier;
+	int			precision;	// * = precision
+	char		specifier; // 서싟지정자
 }				t_struct;
 
 int ft_putchar(char c);
