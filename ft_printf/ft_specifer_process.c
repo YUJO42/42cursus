@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_common.c                                 :+:      :+:    :+:   */
+/*   ft_specifer_process.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/04 16:02:15 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/09 17:15:29 by yujo             ###   ########.fr       */
+/*   Created: 2020/08/10 20:20:34 by yujo              #+#    #+#             */
+/*   Updated: 2020/08/10 20:29:37 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(char c)
+void	print_string(t_struct *tag)
 {
-	write(1, &c, 1);
-	return 1;
+
+}
+
+void	print_number(t_struct *tag)
+{
+
+}
+
+void	specifier_print(t_struct *tag)
+{
+	if (tag->specifier == 's' || tag->specifier == 'c' || tag->specifier == '%')
+		print_string(tag);
+	if (tag-> specifier == 'd' || tag->specifier == 'i' || tag->specifier == 'u'
+	|| tag->specifier == 'x' || tag->specifier == 'X' || tag->specifier == 'p')
+		print_number(tag);
 }

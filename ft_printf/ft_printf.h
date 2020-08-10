@@ -6,24 +6,20 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 17:12:39 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 19:48:56 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
-#define FT_PRINTF_H
+# define FT_PRINTF_H
 
-#include <stdio.h>
+# include <stdio.h>
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdbool.h>
-#include <string.h>
+# include <stdarg.h>
+# include <unistd.h>
 
-#define FORMAT "cspdiuxX%"
-#define FLAG "-+0#"
-#define ON 1
-#define OFF 0
+# define ON 1
+# define OFF 0
 
 // "." "0" "-" "*"
 // c s p d i u x X %
@@ -40,9 +36,33 @@ typedef struct s_struct
 	char		specifier; // 서싟지정자
 }				t_struct;
 
-int 	ft_putchar(char c);
-void	flag_parser(char **format, t_struct *tag);
-void	width_parser(char **format, t_struct *tag);
-void	precision_parser(char **format, t_struct *tag);
+/*
+*******************************************************************************
+** 	ft_printf.c																  *
+*******************************************************************************
+*/
+
+int				ft_printf(const char *format, ...);
+void			parsing_process(char *format, t_struct *tag);
+void			reset_struct(t_struct *tag);
+
+/*
+*******************************************************************************
+** 	ft_printf_utils.c														  *
+*******************************************************************************
+*/
+
+int 			ft_putchar(char c);
+
+/*
+*******************************************************************************
+** 	ft_printf_parser.c														  *
+*******************************************************************************
+*/
+
+void			flag_parser(char **format, t_struct *tag);
+void			width_parser(char **format, t_struct *tag);
+void			precision_parser(char **format, t_struct *tag);
+void			specifier_parser(char **format, t_struct *tag);
 
 #endif

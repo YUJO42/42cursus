@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_parser.c                                        :+:      :+:    :+:   */
+/*   ft_printf_parser.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 15:09:04 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 17:10:58 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 20:48:12 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,15 @@ void	precision_parser(char **format, t_struct *tag)
 		tag->width = (tag->precision * 10) + **format - '0';
 		(*format)++;
 	}
+}
+
+void	specifier_parser(char **format, t_struct *tag)
+{
+	if (**format == 'c' || **format == 's' || **format == 'p' ||
+		**format == 'i' || **format == 'u' || **format == 'd' ||
+		**format == 'x' || **format == 'X' || **format == '%')
+		tag->specifier = **format;
+	else
+		return ;
+	(*format)++;
 }

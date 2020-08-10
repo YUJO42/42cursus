@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 17:16:18 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 20:22:09 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	reset_struct(t_struct *tag)
 	tag->width = 0;
 }
 
-void	start_process(char *format, t_struct *tag)
+void	parsing_process(char *format, t_struct *tag)
 {
 	tag->count = 0;
 	while (*format)
@@ -38,7 +38,8 @@ void	start_process(char *format, t_struct *tag)
 			flag_parser(&format, tag);
 			width_parser(&format, tag);
 			precision_parser(&format, tag);
-
+			specifier_parser(&format, tag);
+			specifier_print(tag);
 		}
 	}
 
@@ -47,8 +48,8 @@ void	start_process(char *format, t_struct *tag)
 	// printf("\n| dot       %d      |", tag->dot);
 	// printf("\n| zero      %d      |", tag->zero);
 	// printf("\n| minus     %d      |", tag->minus);
-	// printf("\n| width     %d      |", tag->width);
 	// printf("\n| precision %d      |", tag->dot);
+	// printf("\n| width     %d      |", tag->width);
 }
 
 int		ft_printf(const char *format, ...)
@@ -57,7 +58,7 @@ int		ft_printf(const char *format, ...)
 	int			count;
 
 	va_start(tag.va, format);
-	start_process((char *)format, &tag);
+	parsing_process((char *)format, &tag);
 	va_end(tag.va);
 
 	return tag.count;
