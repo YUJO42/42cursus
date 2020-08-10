@@ -6,25 +6,23 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 19:48:56 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/10 21:58:00 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
-
 # include <stdarg.h>
 # include <unistd.h>
 
 # define ON 1
 # define OFF 0
+# define DECIMAL "0123456789"
+# define HEX_LOWER "0123456789abcdef"
+# define HEX_UPPER "0123456789ABCDEF"
 
-// "." "0" "-" "*"
-// c s p d i u x X %
-
-typedef struct s_struct
+typedef struct	s_struct
 {
 	va_list		va;
 	int			count;
@@ -64,5 +62,22 @@ void			flag_parser(char **format, t_struct *tag);
 void			width_parser(char **format, t_struct *tag);
 void			precision_parser(char **format, t_struct *tag);
 void			specifier_parser(char **format, t_struct *tag);
+void			specifier_print(t_struct *tag);
+
+/*
+*******************************************************************************
+** 	ft_printf_string.c ('s', 'c', '%')										  *
+*******************************************************************************
+*/
+
+void			print_string(t_struct *tag);
+
+/*
+*******************************************************************************
+** 	ft_printf_number.c ('p', 'd', 'i', 'u', 'x', 'X')						  *
+*******************************************************************************
+*/
+
+void			print_number(t_struct *tag);
 
 #endif
