@@ -6,12 +6,14 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 21:58:00 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/11 14:45:16 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
+
+# include <stdio.h>
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -32,6 +34,9 @@ typedef struct	s_struct
 	int			minus;  // -
 	int			precision;	// * = precision
 	char		specifier; // 서싟지정자
+	int			align;
+	int			data_len;
+	int			printed_len;
 }				t_struct;
 
 /*
@@ -51,6 +56,8 @@ void			reset_struct(t_struct *tag);
 */
 
 int 			ft_putchar(char c);
+int				ft_strlen(char *str, t_struct *tag);
+int				ft_putstr(char *str);
 
 /*
 *******************************************************************************
@@ -66,11 +73,13 @@ void			specifier_print(t_struct *tag);
 
 /*
 *******************************************************************************
-** 	ft_printf_string.c ('s', 'c', '%')										  *
+** 	ft_printf_word.c ('s', 'c', '%')										  *
 *******************************************************************************
 */
 
-void			print_string(t_struct *tag);
+void			print_word(t_struct *tag);
+void			print_word_zero(t_struct *tag);
+void			print_word_space(t_struct *tag);
 
 /*
 *******************************************************************************

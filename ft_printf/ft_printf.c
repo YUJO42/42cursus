@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/10 22:29:23 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/11 14:43:42 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,6 @@ int		ft_printf(const char *format, ...)
 
 int main(void)
 {
-	ft_printf("asdasdasd | %0*.0d | asdasdasd", 10);
+	printf("\n%d\n",ft_printf("asdasdasd | %s | asdasdasd", "123"));
 	// printf("asdasdasd%15.10dqweqwe", 1123456789);
 }
