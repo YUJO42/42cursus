@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 14:43:42 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/11 16:20:12 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,6 @@ void	parsing_process(char *format, t_struct *tag)
 			specifier_print(tag);
 		}
 	}
-
-	// @@@ TEST PARSER @@@
-
-	// printf("\n| dot       %d      |", tag->dot);
-	// printf("\n| zero      %d      |", tag->zero);
-	// printf("\n| minus     %d      |", tag->minus);
-	// printf("\n| precision %d      |", tag->dot);
-	// printf("\n| width     %d      |", tag->width);
 }
 
 int		ft_printf(const char *format, ...)
@@ -64,8 +56,9 @@ int		ft_printf(const char *format, ...)
 	return tag.count;
 }
 
-int main(void)
-{
-	printf("\n%d\n",ft_printf("asdasdasd | %s | asdasdasd", "123"));
-	// printf("asdasdasd%15.10dqweqwe", 1123456789);
-}
+// int main(void)
+// {
+// 	printf("\n%d\n",ft_printf("asdasdasd | %-25d | asdasdasd", 123));
+// 	int test = printf("asdasdasd | %-25d | asdasdasd", 123);
+// 	printf("\n%d", test);
+// }

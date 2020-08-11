@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 14:45:16 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/11 16:15:58 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,9 @@ void			print_word_space(t_struct *tag);
 */
 
 void			print_number(t_struct *tag);
+void			print_number_zero(long long data, t_struct *tag);
+void			print_number_space(long long data, t_struct *tag);
+void			ft_nbr_base(long long n, char *base, t_struct *tag);
+int				ft_nbrlen_base(long long n, char *base, t_struct *tag);
 
 #endif
