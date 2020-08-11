@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 16:20:12 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/11 21:30:54 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	reset_struct(t_struct *tag)
 	tag->zero = OFF;
 	tag->minus = OFF;
 	tag->precision = OFF;
-	tag->width = 0;
+	tag->width = OFF;
+	tag->data_len = OFF;
+	tag->printed_len = OFF;
 }
 
 void	parsing_process(char *format, t_struct *tag)
@@ -47,7 +49,6 @@ void	parsing_process(char *format, t_struct *tag)
 int		ft_printf(const char *format, ...)
 {
 	t_struct	tag;
-	int			count;
 
 	va_start(tag.va, format);
 	parsing_process((char *)format, &tag);
@@ -58,7 +59,8 @@ int		ft_printf(const char *format, ...)
 
 // int main(void)
 // {
-// 	printf("\n%d\n",ft_printf("asdasdasd | %-25d | asdasdasd", 123));
-// 	int test = printf("asdasdasd | %-25d | asdasdasd", 123);
-// 	printf("\n%d", test);
+// 	ft_printf("%.5d", 2);
+// 	printf("\n");
+// 	printf("%.5d", 2);
+// 	printf("\n");
 // }

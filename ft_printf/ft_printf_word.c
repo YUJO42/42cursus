@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 21:56:11 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 16:16:05 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/11 18:40:50 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	print_word_space(t_struct *tag)
 {
 	int		i;
 
-	if (tag->zero && !tag->align && !tag->dot && !tag->precision)
+	if (tag->zero && !tag->minus && !tag->dot && !tag->precision)
 		return ;
 	i = 0;
 	if (tag->precision && tag->precision < tag->data_len)
@@ -42,7 +42,7 @@ void	print_word_zero(t_struct *tag)
 	int		i;
 
 	i = 0;
-	if (tag->zero && !tag->align)
+	if (tag->zero && !tag->minus)
 	{
 		while (i < tag->width - tag->data_len)
 		{
@@ -69,12 +69,12 @@ void	print_word(t_struct *tag)
 	else
 		c = '%';
 	tag->data_len = (tag->specifier == 's') ? ft_strlen(str, tag) : 1;
-	tag->align == 0 ? print_word_space(tag) : 0;
+	tag->minus == 0 ? print_word_space(tag) : 0;
 	print_word_zero(tag);
 	if (tag->specifier == 's')
 		tag->count += (ft_putstr(str));
 	else
 		tag->count += (ft_putchar(c));
-	tag->align == 1 ? print_word_space(tag) : 0;
+	tag->minus == 1 ? print_word_space(tag) : 0;
 
 }

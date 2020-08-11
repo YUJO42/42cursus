@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 21:55:56 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 16:15:30 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/11 19:33:14 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ void	print_number_space(long long data, t_struct *tag)
 	int		i;
 
 	i = data < 0 ? 1: 0;
+	if (tag->specifier == 'd' && tag->zero) {
+		return ;
+	}
 	if (tag->zero && !tag->dot && !tag->precision)
 		i += (tag->width - tag->data_len);
 	if (tag->specifier == 'p')
@@ -111,10 +114,10 @@ void	print_number(t_struct *tag)
 		base = HEX_LOWER;
 	tag->data_len = data < 0 ? ft_nbrlen_base(-data, base, tag)
 								: ft_nbrlen_base(data, base, tag);
-	tag->align == 0 ? print_number_zero(data, tag) : 0;
+	tag->minus == 0 ? print_number_space(data, tag) : 0;
 	tag->count += (data < 0) ? ft_putchar('-') : 0;
 	tag->count += (tag->specifier == 'p') ? ft_putstr("0x") : 0;
 	print_number_zero(data, tag);
 	data < 0 ? ft_nbr_base(-data, base, tag) : ft_nbr_base(data, base, tag);
-	tag->align == 1 ? print_number_space(data, tag) : 0;
+	tag->minus == 1 ? print_number_space(data, tag) : 0;
 }
