@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 21:55:56 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 19:33:14 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 17:05:43 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,16 @@ void	print_number(t_struct *tag)
 		base = HEX_UPPER;
 	else
 		base = HEX_LOWER;
-	tag->data_len = data < 0 ? ft_nbrlen_base(-data, base, tag)
+	// if (tag->dot && tag->zero)
+	// 	tag->zero = ON;
+	tag->data_len = data < 0 ? ft_nbrlen_base(-1 * data, base, tag)
 								: ft_nbrlen_base(data, base, tag);
 	tag->minus == 0 ? print_number_space(data, tag) : 0;
 	tag->count += (data < 0) ? ft_putchar('-') : 0;
 	tag->count += (tag->specifier == 'p') ? ft_putstr("0x") : 0;
+	// printf("[precision : %d]\n", tag->precision);
+	// printf("[data_len : %d]\n", tag->data_len);
+	// printf("\ncheck zero condition : %d\n", tag->zero);
 	print_number_zero(data, tag);
 	data < 0 ? ft_nbr_base(-data, base, tag) : ft_nbr_base(data, base, tag);
 	tag->minus == 1 ? print_number_space(data, tag) : 0;

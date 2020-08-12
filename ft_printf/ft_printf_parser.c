@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 15:09:04 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 14:12:59 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 17:04:35 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	precision_parser(char **format, t_struct *tag)
 	}
 	while ('0' <= **format && **format <= '9')
 	{
-		tag->width = (tag->precision * 10) + **format - '0';
+		tag->precision = (tag->precision * 10) + **format - '0';
 		(*format)++;
 	}
 }

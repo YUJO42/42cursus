@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 16:02:15 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 14:52:23 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 16:57:41 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int 	ft_putchar(char c)
 {
 	write(1, &c, 1);
-	return 1;
+	return (1);
 }
 
 int		ft_strlen(char *str, t_struct *tag)
@@ -36,11 +36,10 @@ int		ft_putstr(char *str)
 	int			count;
 
 	i = 0;
-	count = 0;
 	while (str[i])
 	{
 		count += ft_putchar(str[i]);
 		i++;
 	}
-	return count;
+	return (count);
 }
