@@ -6,14 +6,12 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 14:07:16 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 20:00:10 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-
-# include <stdio.h>
 
 # include <stdarg.h>
 # include <unistd.h>
@@ -28,12 +26,12 @@ typedef struct	s_struct
 {
 	va_list		va;
 	int			count;
-	int			width;  // 전체의 폭 = *
-	int			dot;	// =. = 자리수 표시 = precision
-	int			zero;	// 0 = 공백만큼 0채움
-	int			minus;  // - = align
-	int			precision;	//
-	char		specifier; // 서싟지정자
+	int			width;
+	int			dot;
+	int			zero;
+	int			minus;
+	int			precision;
+	char		specifier;
 	int			data_len;
 	int			printed_len;
 }				t_struct;
@@ -55,8 +53,9 @@ void			reset_struct(t_struct *tag);
 */
 
 int 			ft_putchar(char c);
+void			ft_putstr(char *str, t_struct *tag);
 int				ft_strlen(char *str, t_struct *tag);
-int				ft_putstr(char *str);
+// int				ft_putstr(char *str);
 
 /*
 *******************************************************************************
@@ -79,6 +78,7 @@ void			specifier_print(t_struct *tag);
 void			print_word(t_struct *tag);
 void			print_word_zero(t_struct *tag);
 void			print_word_space(t_struct *tag);
+
 
 /*
 *******************************************************************************

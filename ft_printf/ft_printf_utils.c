@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 16:02:15 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 16:57:41 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 19:59:15 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,17 @@ int		ft_strlen(char *str, t_struct *tag)
 	return (i);
 }
 
-int		ft_putstr(char *str)
+void	ft_putstr(char *str, t_struct *tag)
 {
-	int			i;
-	int			count;
+	int		i;
 
+	if (!str || (tag->specifier == 's' && tag->dot && !tag->precision))
+		return ;
 	i = 0;
-	while (str[i])
-	{
-		count += ft_putchar(str[i]);
-		i++;
-	}
-	return (count);
+	if (tag->specifier == 's' && tag->precision)
+		while (str[i] && i < tag->precision)
+			tag->count += ft_putchar(str[i++]);
+	else
+		while (str[i])
+			tag->count += ft_putchar(str[i++]);
 }
