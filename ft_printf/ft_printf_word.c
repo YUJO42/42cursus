@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 21:56:11 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 19:29:37 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 20:04:32 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ void	print_word(t_struct *tag)
 	else
 		tag->count += (ft_putchar(c));
 	tag->minus == 1 ? print_word_space(tag) : 0;
-
 }

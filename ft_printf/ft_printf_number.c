@@ -6,15 +6,15 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 21:55:56 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 19:59:52 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 20:06:13 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_nbr_base(long long n, char *base, t_struct *tag)
+void			ft_nbr_base(long long n, char *base, t_struct *tag)
 {
-	int		i;
+	int			i;
 
 	if (n == 0 && tag->dot && !tag->precision)
 		return ;
@@ -24,10 +24,10 @@ void		ft_nbr_base(long long n, char *base, t_struct *tag)
 	tag->count += ft_putchar(base[n % i]);
 }
 
-int			ft_nbrlen_base(long long n, char *base, t_struct *tag)
+int				ft_nbrlen_base(long long n, char *base, t_struct *tag)
 {
-	int		i;
-	int		j;
+	int			i;
+	int			j;
 
 	if (n == 0 && tag->dot && !tag->precision)
 		return (0);
@@ -41,11 +41,11 @@ int			ft_nbrlen_base(long long n, char *base, t_struct *tag)
 	return (i);
 }
 
-void	print_number_space(long long data, t_struct *tag)
+void			print_number_space(long long data, t_struct *tag)
 {
-	int		i;
+	int			i;
 
-	i = data < 0 ? 1: 0;
+	i = data < 0 ? 1 : 0;
 	if (tag->zero && !tag->dot && !tag->precision)
 		i += (tag->width - tag->data_len);
 	if (tag->specifier == 'p')
@@ -68,9 +68,9 @@ void	print_number_space(long long data, t_struct *tag)
 	}
 }
 
-void	print_number_zero(long long data, t_struct *tag)
+void			print_number_zero(long long data, t_struct *tag)
 {
-	int		i;
+	int			i;
 
 	if (tag->zero && !tag->dot && !tag->precision)
 	{
@@ -92,7 +92,7 @@ void	print_number_zero(long long data, t_struct *tag)
 	}
 }
 
-void	print_number(t_struct *tag)
+void			print_number(t_struct *tag)
 {
 	char		*base;
 	long long	data;

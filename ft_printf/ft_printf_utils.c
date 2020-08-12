@@ -6,19 +6,19 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/04 16:02:15 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 19:59:15 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 20:03:47 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int 	ft_putchar(char c)
+int			ft_putchar(char c)
 {
 	write(1, &c, 1);
 	return (1);
 }
 
-int		ft_strlen(char *str, t_struct *tag)
+int			ft_strlen(char *str, t_struct *tag)
 {
 	int		i;
 
@@ -30,7 +30,7 @@ int		ft_strlen(char *str, t_struct *tag)
 	return (i);
 }
 
-void	ft_putstr(char *str, t_struct *tag)
+void		ft_putstr(char *str, t_struct *tag)
 {
 	int		i;
 

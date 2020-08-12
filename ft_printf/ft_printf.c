@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 19:24:16 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 20:01:46 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,5 @@ int		ft_printf(const char *format, ...)
 	va_start(tag.va, format);
 	parsing_process((char *)format, &tag);
 	va_end(tag.va);
-
-	return tag.count;
+	return (tag.count);
 }
-
-// int main(void)
-// {
-// 	ft_printf("%08.5d", 34);
-// 	printf("\n");
-// 	printf("%08.5d", 34);
-// 	printf("\n");
-// }

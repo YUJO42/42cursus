@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 15:09:04 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 18:31:31 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 20:04:54 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ void	specifier_parser(char **format, t_struct *tag)
 		return ;
 	(*format)++;
 }
-
 
 void	specifier_print(t_struct *tag)
 {

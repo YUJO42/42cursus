@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/12 20:00:10 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 20:04:19 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,9 @@ void			reset_struct(t_struct *tag);
 *******************************************************************************
 */
 
-int 			ft_putchar(char c);
+int				ft_putchar(char c);
 void			ft_putstr(char *str, t_struct *tag);
 int				ft_strlen(char *str, t_struct *tag);
-// int				ft_putstr(char *str);
 
 /*
 *******************************************************************************
@@ -78,7 +77,6 @@ void			specifier_print(t_struct *tag);
 void			print_word(t_struct *tag);
 void			print_word_zero(t_struct *tag);
 void			print_word_space(t_struct *tag);
-
 
 /*
 *******************************************************************************
