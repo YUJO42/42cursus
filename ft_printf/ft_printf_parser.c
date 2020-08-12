@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/10 15:09:04 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 18:46:29 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 14:12:59 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	flag_parser(char **format, t_struct *tag)
 	{
 		if (**format == '-')
 			tag->minus = ON;
-		else if (**format == '0')
+		if (**format == '0')
 			tag->zero = ON;
 		(*format)++;
 	}
-	// if (tag->minus && tag->zero)
-	// 	tag->zero = OFF;
+	if (tag->minus && tag->zero)
+		tag->zero = OFF;
 }
 
 void	width_parser(char **format, t_struct *tag)
@@ -31,13 +31,14 @@ void	width_parser(char **format, t_struct *tag)
 	if (**format == '*')
 	{
 		tag->width = va_arg(tag->va, int);
-		(*format)++;
 		if (tag->width < 0)
 		{
-			tag->zero = OFF;
+			if (tag->zero)
+				tag->zero = OFF;
 			tag->minus = ON;
-			tag->width = -tag->width;
+			tag->width *= -1;
 		}
+		(*format)++;
 	}
 	while ('0' <= **format && **format <= '9')
 	{
@@ -53,7 +54,7 @@ void	precision_parser(char **format, t_struct *tag)
 		tag->dot = ON;
 		(*format)++;
 	}
-	if (**format == '.')
+	if (**format == '*')
 	{
 		tag->precision = va_arg(tag->va, int);
 		if (tag->precision < 0)

@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/08 17:31:10 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 21:30:54 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 14:14:02 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ int		ft_printf(const char *format, ...)
 	return tag.count;
 }
 
-// int main(void)
-// {
-// 	ft_printf("%.5d", 2);
-// 	printf("\n");
-// 	printf("%.5d", 2);
-// 	printf("\n");
-// }
+int main(void)
+{
+	ft_printf("%.5d", 2);
+	printf("\n");
+	printf("%.5d", 2);
+	printf("\n");
+}

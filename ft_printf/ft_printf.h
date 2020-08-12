@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/01 20:23:29 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/11 20:38:41 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/12 14:07:16 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct	s_struct
 	va_list		va;
 	int			count;
 	int			width;  // 전체의 폭 = *
-	int			dot;	// . = 자리수 표시 = precision
+	int			dot;	// =. = 자리수 표시 = precision
 	int			zero;	// 0 = 공백만큼 0채움
 	int			minus;  // - = align
 	int			precision;	//

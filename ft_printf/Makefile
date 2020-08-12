@@ -1,5 +1,3 @@
-C = clang
-
 NAME = libftprintf.a
 LIBFT = libft
 LIBFT_LIB = libft.a
@@ -9,18 +7,19 @@ SRCS = ./ft_printf.c\
 		ft_printf_parser.c\
 		ft_printf_word.c\
 		ft_printf_number.c
+OBJS		= $(SRCS:.c=.o)
+LIBC		= ar rc
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
 
-OBJS = $(SRCS:.c=.o)
+.c.o :
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I$(INCS)
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-
-$(NAME):
-	gcc $(CFLAGS) -c $(SRCS) -I ./
+$(NAME) :
+	gcc $(FLAGS) -c $(SRCS) -I ./
 	ar rc $(NAME) $(OBJS)
 
-all:
-	$(NAME)
+all: $(NAME)
 
 clean:
 	rm -rf $(OBJS)
