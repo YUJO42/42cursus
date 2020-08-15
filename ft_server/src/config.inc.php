@@ -1,5 +1,5 @@
 <?php
-$cfg['blowfish_secret'] = '$2a$07$haNGOmZlWPwCe20HSKBwRO7ZFvljXZsFPxXUFKNQ.ds9q1bzMQ8z.';
+$cfg['blowfish_secret'] = '$2a$07$C0gl7v8RMKJo18jv4C1EPuXm1Bjfhbe0Qth5LTBHpM1TG3i9iZ1Dq';
 
 /**
  * Servers configuration
@@ -15,7 +15,7 @@ $cfg['Servers'][$i]['auth_type'] = 'cookie';
 /* Server parameters */
 $cfg['Servers'][$i]['host'] = 'localhost';
 $cfg['Servers'][$i]['compress'] = false;
-$cfg['Servers'][$i]['AllowNoPassword'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = true;
 
 /**
  * phpMyAdmin configuration storage settings.
