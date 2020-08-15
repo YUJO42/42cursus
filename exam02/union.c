@@ -1,3 +1,6 @@
+// 합집합
+// argv[1]을 기준으로 argv[2]를 출력
+
 #include <unistd.h>
 
 int main(int argc, char **argv)
