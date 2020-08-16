@@ -68,13 +68,13 @@ RUN ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
 ##########################
 ADD src/wp-config.php /var/www/html/wordpress/wp-config.php
 RUN service mysql start; \
-echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password  \
-echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password \
-echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password \
-echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
-	# echo "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;" | mysql; \
-	# echo "GRANT ALL ON wordpress.* TO 'wordpress_user'@'localhost' IDENTIFIED BY 'password';" | mysql; \
-	# echo "FLUSH PRIVILEGES;" | mysql
+# echo "CREATE DATABASE wordpress;" | mysql -u root --skip-password  \
+# echo "GRANT ALL PRIVILEGES ON wordpress.* TO 'root'@'localhost' WITH GRANT OPTION;" | mysql -u root --skip-password \
+# echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password \
+# echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
+	 echo "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;" | mysql; \
+	 echo "GRANT ALL ON wordpress.* TO 'wordpress_user'@'localhost' IDENTIFIED BY 'password';" | mysql; \
+	 echo "FLUSH PRIVILEGES;" | mysql
 
 
 #############################
