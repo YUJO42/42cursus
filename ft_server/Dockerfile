@@ -1,3 +1,4 @@
+  
 FROM debian:buster
 LABEL maintainer = "yujo(yujo@student.42seoul.kr)"
 
@@ -56,12 +57,11 @@ RUN mv phpmyadmin /var/www/html/
 ##################
 # set phpMyAdmin #
 ##################
-# ADD src/config.inc.php /var/www/htmp/phpmyadmin/config.inc.php
-ADD src/config.inc.php /usr/share/phpmyadmin/config.inc.php
-RUN mkdir /usr/share/phpmyadmin/tmp; \
-	chmod 777 /usr/share/phpmyadmin/tmp; \
-	chmod 644 /usr/share/phpmyadmin/config.inc.php
-RUN ln -s /usr/share/phpmyadmin /var/www/html/phpmyadmin
+ADD src/config.inc.php /var/www/html/phpmyadmin/config.inc.php
+RUN mkdir /var/www/html/phpmyadmin/tmp; \
+	chmod 777 /var/www/html/phpmyadmin/tmp; \
+	chmod 644 /var/www/html/phpmyadmin/config.inc.php
+RUN ln -s /var/www/html/phpmyadmin /var/www/html/phpmyadmin
 
 ##########################
 # WordPress Setting 	 #
@@ -73,8 +73,8 @@ RUN service mysql start; \
 # echo "update mysql.user set plugin='mysql_native_password' where user='root';" | mysql -u root --skip-password \
 # echo "FLUSH PRIVILEGES;" | mysql -u root --skip-password
 	 echo "CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;" | mysql; \
-	 echo "GRANT ALL ON wordpress.* TO 'wordpress_user'@'localhost' IDENTIFIED BY 'password';" | mysql; \
-	 echo "FLUSH PRIVILEGES;" | mysql
+	 echo "GRANT ALL ON wordpress.* TO 'yujo'@'localhost' IDENTIFIED BY '1234';" | mysql; \
+	 echo "FLUSH PRIVILEGES;" | mysql 
 
 
 #############################
