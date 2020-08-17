@@ -14,7 +14,8 @@ server {
 	ssl_certificate /etc/ssl/certs/localhost.dev.crt;
 	ssl_certificate_key /etc/ssl/private/localhost.dev.key;
 
-	index index.html index.htm;
+	#index index.html index.htm;
+	index index.php index.html index.htm;
 
 	root /var/www/html;
 
