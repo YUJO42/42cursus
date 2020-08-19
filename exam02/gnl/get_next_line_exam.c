@@ -40,7 +40,7 @@ int get_next_line(char **line)
 	buf[size] = 0;
 	while (size && buf[0] != '\n')
 	{
-		size = read(3, buf, 1);
+		size = read(0, buf, 1);
 		if (buf[0] != '\n' && size != 0)
 		{
 			temp = ft_strjoin(store, buf);
@@ -52,21 +52,3 @@ int get_next_line(char **line)
 	return (size);
 }
 
-#include <stdio.h>
-
-int main(void)
-{
-	int r;
-	char *line;
-
-	line = NULL;
-	while ((r = get_next_line(&line)) > 0)
-	{
-		printf("%s\n", line);
-		free(line);
-		line = NULL;
-	}
-	printf("%s", line);
-	free(line);
-	line = NULL;
-}
