@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 18:57:24 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/29 16:05:19 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/30 22:15:44 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 
 # include <math.h>
 # include <fcntl.h>
+# include <errno.h>
+# include <stdlib.h>
+# include <string.h>
 
 # define TRUE 1
 # define FALSE 0

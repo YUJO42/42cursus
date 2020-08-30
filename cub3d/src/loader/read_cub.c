@@ -6,11 +6,41 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/29 15:48:16 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/29 15:51:19 by yujo             ###   ########.fr       */
+/*   Updated: 2020/08/30 22:15:50 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+bool		still_has_line(int fd)
+{
+	char *line;
+
+	if (get_next_line(fd, &line))
+	{
+		free(line);
+		return (TRUE);
+	}
+	free(line);
+	return (FALSE);
+}
+
+int			open_cub_file(char *path)
+{
+	int		fd;
+	size_t	len;
+
+	if (!path)
+		exit_with_errmsg("no path.");
+	len = ft_strlen(path);
+	if (path[len - 4] != '.' || path[len - 3] != 'c' ||
+		path[len - 2] != 'u' || path[len - 1] != 'b')
+		exit_with_errmsg("please enter the right extension.");
+	if ((fd = open(path, O_RDONLY)) == ERROR)
+		exit_with_errmsg(strerror(errno));
+	return (fd);
+}
+
 
 t_info	read_cub_file(char *path)
 {
