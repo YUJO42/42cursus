@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/29 13:30:30 by yujo              #+#    #+#             */
-/*   Updated: 2020/09/01 22:45:44 by yujo             ###   ########.fr       */
+/*   Updated: 2020/09/01 17:07:37 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,7 @@ int     main(int argc, char **argv)
     else if (3 < argc)
         exit_with_errmsg("please enter '1' or '2' argument");
     check_capture = check_screenshot_option(argc, argv[2]);
+    game_info = read_cub_file(argv[1]);
+    free_game_info(&game_info);
+    return (0);
 }
