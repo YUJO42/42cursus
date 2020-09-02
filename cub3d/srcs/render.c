@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/22 16:46:35 by yujo              #+#    #+#             */
-/*   Updated: 2020/09/02 15:30:49 by yujo             ###   ########.fr       */
+/*   Created: 2020/08/21 15:16:41 by yujo              #+#    #+#             */
+/*   Updated: 2020/09/02 17:16:34 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../utils/cub3d.h"
+#include "../includes/cub3d.h"
 
 void	init_base(int x, t_cub *base, t_ren *info)
 {

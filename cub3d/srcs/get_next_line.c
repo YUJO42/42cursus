@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/22 16:46:35 by yujo              #+#    #+#             */
-/*   Updated: 2020/09/02 15:31:08 by yujo             ###   ########.fr       */
+/*   Created: 2020/09/02 17:05:20 by yujo              #+#    #+#             */
+/*   Updated: 2020/09/02 17:05:22 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../utils/cub3d.h"
+#include "../includes/get_next_line.h"
 
 void	save_in_tmp(char *buf, int size, int idx, char **tmp)
 {

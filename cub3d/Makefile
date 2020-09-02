@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/09/02 15:32:50 by yujo              #+#    #+#              #
-#    Updated: 2020/09/02 15:32:50 by yujo             ###   ########.fr        #
+#    Created: 2020/09/02 16:48:45 by yujo              #+#    #+#              #
+#    Updated: 2020/09/02 16:48:45 by yujo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS =	./srcs/do_end.c					\
 
 OBJS =	$(SRCS:.c=.o)
 
-UTILS = ./utils
+INCLUDES = ./includes
 
 CC = gcc
 
@@ -39,7 +39,7 @@ NAME = cub3d
 RM = rm -rf
 
 .c.o :
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(UTILS)
+		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCLUDES)
 
 all : $(NAME)
 

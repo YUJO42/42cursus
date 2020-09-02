@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/08/22 16:46:35 by yujo              #+#    #+#             */
-/*   Updated: 2020/09/02 15:30:52 by yujo             ###   ########.fr       */
+/*   Created: 2020/08/21 15:16:41 by yujo              #+#    #+#             */
+/*   Updated: 2020/09/02 17:16:30 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../utils/cub3d.h"
+#include "../includes/cub3d.h"
 
 int		parse_color_du(char *line, int *idx2)
 {
