@@ -6,17 +6,14 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/26 18:57:24 by yujo              #+#    #+#             */
-/*   Updated: 2020/08/30 22:15:44 by yujo             ###   ########.fr       */
+/*   Updated: 2020/09/02 09:03:41 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_HEADER
 # define CUB3D_HEADER
 
-# include "../utils/keymap.h"
-# include "../utils/libft/libft.h"
-# include "../utils/mlx_beta/mlx.h"
-# include "../utils/gnl/get_next_line.h"
+# include "./utils/utils.h"
 
 # include <math.h>
 # include <fcntl.h>

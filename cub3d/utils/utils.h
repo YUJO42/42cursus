@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/29 21:31:02 by yujo              #+#    #+#             */
-/*   Updated: 2020/07/27 18:48:17 by yujo             ###   ########.fr       */
+/*   Created: 2020/09/02 09:01:50 by yujo              #+#    #+#             */
+/*   Updated: 2020/09/02 09:03:07 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef UTILS_H
+# define UTILS_H
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <stddef.h>
-# include <limits.h>
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 8
-# endif
-
-int		get_next_line(int fd, char **line);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const char *s);
-char	*ft_strdup(const char *s1);
+# include "keymap.h"
+# include "./gnl/get_next_line.h"
+# include "./mlx/mlx.h"
+# include "./libft/libft.h"
 
 #endif
