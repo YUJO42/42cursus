@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/02 17:05:09 by yujo              #+#    #+#             */
-/*   Updated: 2020/09/03 17:27:31 by yujo             ###   ########.fr       */
+/*   Updated: 2020/09/04 14:46:37 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,26 +17,26 @@ void	do_y(t_cub *base, int mode)
 	if (mode == 0)
 	{
 		if (base->worldmap[(int)(base->posx)]
-		[(int)(base->posy + base->diry * 0.3)] == 0)
-			base->posy += base->diry * 0.3;
+		[(int)(base->posy + base->diry * 0.2)] == 0)
+			base->posy += base->diry * 0.2;
 	}
 	else if (mode == 1)
 	{
 		if (base->worldmap[(int)(base->posx)]
-		[(int)(base->posy - base->diry * 0.3)] == 0)
-			base->posy -= base->diry * 0.3;
+		[(int)(base->posy - base->diry * 0.2)] == 0)
+			base->posy -= base->diry * 0.2;
 	}
 	else if (mode == 2)
 	{
 		if (base->worldmap[(int)(base->posx)]
-		[(int)(base->posy + base->dirx * 0.3)] == 0)
-			base->posy += base->dirx * 0.3;
+		[(int)(base->posy + base->dirx * 0.2)] == 0)
+			base->posy += base->dirx * 0.2;
 	}
 	else if (mode == 3)
 	{
 		if (base->worldmap[(int)(base->posx)]
-		[(int)(base->posy - base->dirx * 0.3)] == 0)
-			base->posy -= base->dirx * 0.3;
+		[(int)(base->posy - base->dirx * 0.2)] == 0)
+			base->posy -= base->dirx * 0.2;
 	}
 }
 
@@ -44,27 +44,27 @@ void	do_x(t_cub *base, int mode)
 {
 	if (mode == 0)
 	{
-		if (base->worldmap[(int)(base->posx + base->dirx * 0.3)]
+		if (base->worldmap[(int)(base->posx + base->dirx * 0.2)]
 		[(int)(base->posy)] == 0)
-			base->posx += base->dirx * 0.3;
+			base->posx += base->dirx * 0.2;
 	}
 	else if (mode == 1)
 	{
-		if (base->worldmap[(int)(base->posx - base->dirx * 0.3)]
+		if (base->worldmap[(int)(base->posx - base->dirx * 0.2)]
 		[(int)(base->posy)] == 0)
-			base->posx -= base->dirx * 0.3;
+			base->posx -= base->dirx * 0.2;
 	}
 	else if (mode == 2)
 	{
-		if (base->worldmap[(int)(base->posx - base->diry * 0.3)]
+		if (base->worldmap[(int)(base->posx - base->diry * 0.2)]
 		[(int)(base->posy)] == 0)
-			base->posx -= base->diry * 0.3;
+			base->posx -= base->diry * 0.2;
 	}
 	else if (mode == 3)
 	{
-		if (base->worldmap[(int)(base->posx + base->diry * 0.3)]
+		if (base->worldmap[(int)(base->posx + base->diry * 0.2)]
 		[(int)(base->posy)] == 0)
-			base->posx += base->diry * 0.3;
+			base->posx += base->diry * 0.2;
 	}
 }
 
