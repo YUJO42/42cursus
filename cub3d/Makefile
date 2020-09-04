@@ -34,7 +34,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 XMLFLAGS = -I /usr/local/include -L /usr/local/lib -lmlx -framework OpenGL -framework Appkit -L ./libft -lft
 
-NAME = cub3d
+NAME = cub3D
 
 RM = rm -rf
 
