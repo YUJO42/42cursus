@@ -1,9 +1,9 @@
-SRCS = 	./srcs/ft_strlen.s	\
-		./srcs/ft_strcpy.s	\
-		./srcs/ft_strcmp.s 	\
-		./srcs/ft_write.s	\
-		./srcs/ft_read.s 	\
-		./srcs/ft_strdup.s	\
+SRCS = 	./src/ft_strlen.s	\
+		./src/ft_strcpy.s	\
+		./src/ft_strcmp.s 	\
+		./src/ft_write.s	\
+		./src/ft_read.s 	\
+		./src/ft_strdup.s	\
 
 OBJS = $(SRCS:.s=.o)
 
@@ -16,20 +16,24 @@ RM = rm -rf
 OBJ_FILES = $(OBJS)
 
 
-.s.o :
+.s.o	:
 		$(NASM) $<
 
-all : $(NAME)
+all		: $(NAME)
 
-$(NAME) : $(OBJ_FILES)
+$(NAME)	: $(OBJ_FILES)
 	ar rcs $(NAME) $(OBJ_FILES)
 
-clean :
+clean	:
 	$(RM) $(OBJS) $(OBJS_B)
 
 fclean : clean
 	$(RM) $(NAME)
 
-re : fclean all
+re 		: fclean all
+
+test	:	re
+			$(CC) -o libasm_tester libasm_tester.c -L. -lasm
+			./libasm_tester
 
 .PHONY : all clean fclean re bonus

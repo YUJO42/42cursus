@@ -1,1 +1,0 @@
-1. nsam install - ```brew install nasm```
