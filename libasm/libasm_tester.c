@@ -6,7 +6,7 @@
 /*   By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/08 08:50:15 by yujo              #+#    #+#             */
-/*   Updated: 2020/09/09 16:33:30 by yujo             ###   ########.fr       */
+/*   Updated: 2020/09/10 09:02:47 by yujo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,17 @@ void    ft_strcmp_test()
     printf("@          ft_strcmp           @\n");
     printf("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n");
 
-    printf("strcmp:		%d\nft_strcmp:	%d\n__\n",strcmp("hey",""),ft_strcmp("hey",""));
-	printf("strcmp:		%d\nft_strcmp:	%d\n__\n",strcmp("célestin  le peetit coquin","célestin  le petit coquin"),ft_strcmp("célestin  le peetit coquin","célestin  le petit coquin"));
-	printf("strcmp:		%d\nft_strcmp:	%d\n__\n",strcmp("célestin  le petit coquin","célestin  le petit coquin"),ft_strcmp("célestin  le petit coquin","célestin  le petit coquin"));
-	printf("strcmp:		%d\nft_strcmp:	%d\n__\n",strcmp("ho","ho"),ft_strcmp("ho","ho"));
-	printf("strcmp:		%d\nft_strcmp:	%d\n__\n",strcmp("",""),ft_strcmp("",""));
-	printf("strcmp:		%d\nft_strcmp:	%d\n__\n",strcmp("hey","ho"),ft_strcmp("hey","ho"));
-	printf("strcmp:		%d\nft_strcmp:	%d\n__\n",strcmp("célestin  le ptit coquin","célestin  le petit coquin"),ft_strcmp("célestin  le ptit coquin","célestin  le petit coquin"));
+    printf("strcmp    : %d\n", strcmp("yujo", "yuj"));
+    printf("ft_strcmp : %d\n", ft_strcmp("yujo", "yuj"));
+    printf("--------------------------------\n");
+
+    printf("strcmp    : %d\n", strcmp(" ", ""));
+    printf("ft_strcmp : %d\n", ft_strcmp(" ", ""));
+    printf("--------------------------------\n");
+
+    printf("strcmp    : %d\n", strcmp("the\0hidden", ""));
+    printf("ft_strcmp : %d\n", ft_strcmp("the\0hidden", ""));
+    printf("--------------------------------\n");
 
     return;
 }
