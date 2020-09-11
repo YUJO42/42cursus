@@ -2,12 +2,12 @@ section .text
     global _ft_strcmp
 
 _ft_strcmp :
-                mov rbx, 0
-                cmp rsi, 0
-                je  do_null
-                cmp rdi, 0
-                je  do_null
-                jmp repeat
+        mov rbx, 0
+        cmp rsi, 0
+        je  do_null
+        cmp rdi, 0
+        je  do_null
+        jmp repeat
 
 do_null :
         cmp rdi, rsi
