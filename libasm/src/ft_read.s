@@ -3,10 +3,9 @@ section .text
     global _ft_read
 
 _ft_read:
-        mov rax, 0x2000003 ; 0x2000003 = write
+        mov rax, 0x2000003
         syscall
-        cmp rax, 0
-        jl error
+        jc error
         ret
 
 error:
