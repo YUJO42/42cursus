@@ -6,7 +6,19 @@
 #    By: yujo <yujo@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/09/23 13:20:05 by yujo              #+#    #+#              #
-#    Updated: 2020/09/24 16:03:50 by yujo             ###   ########.fr        #
+#    Updated: 2020/09/26 10:21:56 by yujo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 192.168.99.95-192.168.99.105
