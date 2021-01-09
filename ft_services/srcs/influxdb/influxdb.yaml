@@ -1,0 +1,270 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  selector:
+    app: influxdb
+  ports:
+    - protocol: TCP
+      port: 8086
+      targetPort: 8086
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  selector:
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+        - name: influxdb
+          image: ft_influxdb
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8086
+          livenessProbe:
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+            httpGet:
+              path: /ping
+              port: 8086
+          volumeMounts:
+            - name: influxdb-data
+              mountPath: /var/lib/influxdb
+            - name: influxdb-config
+              subPath: influxdb.conf
+              mountPath: /etc/influxdb/influxdb.conf
+              readOnly: true
+          envFrom:
+            - secretRef:
+                name: influxdb
+      volumes:
+        - name: influxdb-data
+          persistentVolumeClaim:
+            claimName: influxdb
+        - name: influxdb-config
+          configMap:
+            name: influxdb
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 300Mi
+
+---
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+type: Opaque
+stringData:
+  INFLUXDB_CONFIG_PATH: /etc/influxdb/influxdb.conf
+  INFLUXDB_ADMIN_USER: admin
+  INFLUXDB_ADMIN_PASSWORD: password
+  INFLUXDB_DB: telegraf
+  INFLUXDB_USER: user
+  INFLUXDB_USER_PASSWORD: password
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+data:
+  influxdb.conf: |
+    reporting-disabled = false
+    bind-address = "127.0.0.1:8088"
+    ###
+    ### [meta]
+    ###
+    ### Controls the parameters for the Raft consensus group that stores metadata
+    ### about the InfluxDB cluster.
+    ###
+    [meta]
+      dir = "/var/lib/influxdb/meta"
+      retention-autocreate = true
+      logging-enabled = true
+    [data]
+      dir = "/var/lib/influxdb/data"
+      wal-dir = "/var/lib/influxdb/wal"
+      wal-fsync-delay = "0s"
+      index-version = "inmem"
+      trace-logging-enabled = false
+      query-log-enabled = true
+      cache-max-memory-size = "1g"
+      cache-snapshot-memory-size = "25m"
+      compact-full-write-cold-duration = "4h"
+      cache-snapshot-write-cold-duration = "10m"
+      max-concurrent-compactions = 0
+      tsm-use-madv-willneed = false
+      max-series-per-database = 1000000
+      max-values-per-tag = 100000
+      max-index-log-file-size = "1m"
+
+    ###
+    ### [coordinator]
+    ###
+    ### Controls the clustering service configuration.
+    ###
+    [coordinator] # default
+      write-timeout = "10s"
+      max-concurrent-queries = 0
+      query-timeout = "0s"
+      log-queries-after = "0s"
+      max-select-point = 0
+      max-select-series = 0
+      max-select-buckets = 0
+
+    [retention]
+      enabled = true #default
+      check-interval = "30m0s"
+
+    [shard-precreation] # default
+      enabled = true
+      check-interval = "10m0s"
+      advance-period = "30m0s"
+
+    [monitor] #default
+      store-enabled = true
+      store-database = "_internal"
+      store-interval = "10s"
+
+    [subscriber] # default
+      enabled = true
+      http-timeout = "30s"
+      insecure-skip-verify = false
+      ca-certs = ""
+      write-concurrency = 40
+      write-buffer-size = 1000
+
+    [http] # default
+      enabled = true
+      bind-address = ":8086"
+      auth-enabled = false
+      log-enabled = true
+      access-log-path = ""
+      realm = "InfluxDB"
+      suppress-write-log = false
+      write-tracing = false
+      pprof-enabled = true
+      debug-pprof-enabled = false
+      https-enabled = false
+      max-row-limit = 0
+      max-connection-limit = 0
+      shared-secret = ""
+      unix-socket-enabled = false
+      unix-socket-permissions = "0777"
+      bind-socket = "/var/run/influxdb.sock"
+      max-body-size = 25000000
+      max-concurrent-write-limit = 0
+      max-enqueued-write-limit = 0
+      enqueued-write-timeout = 30000000000
+
+    [logging] # default
+      format = "auto"
+      level = "info"
+      suppress-logo = false
+
+    [ifql]
+      enabled = false
+      log-enabled = true
+      bind-address = ":8082"
+
+    [[graphite]] # default
+      enabled = false
+      database = "telegraf" # 중요!
+      retention-policy = ""
+      bind-address = ":2003"
+      protocol = "tcp"
+      consistency-level = "one"
+      batch-size = 5000
+      batch-pending = 10
+      batch-timeout = "1s"
+      udp-read-buffer = 0
+      separator = "."
+      templates = [ #https://gatling.io/docs/current/realtime_monitoring 참고
+                "gatling.*.*.*.* measurement.simulation.request.status.field",
+                "gatling.*.users.*.* measurement.simulation.measurement.request.field"
+      ]
+      #      templates = [
+      #        "gatling.*.*.*.*.*.* measurement.test.injector.simulation.request.status.field",
+      #        "gatling.*.*.*.users.*.* measurement.test.injector.simulation.measurement.request.field"
+      #      ]
+
+    [[collectd]]
+      enabled = false
+      bind-address = ":25826"
+      database = "collectd"
+      retention-policy = ""
+      batch-size = 5000
+      batch-pending = 10
+      batch-timeout = "10s"
+      read-buffer = 0
+      typesdb = "/usr/share/collectd/types.db"
+      security-level = "none"
+      auth-file = "/etc/collectd/auth_file"
+      parse-multivalue-plugin = "split"
+
+    [[opentsdb]]
+      enabled = false
+      bind-address = ":4242"
+      database = "opentsdb"
+      retention-policy = ""
+      consistency-level = "one"
+      tls-enabled = false
+      certificate = "/etc/ssl/influxdb.pem"
+      batch-size = 1000
+      batch-pending = 5
+      batch-timeout = "1s"
+      log-point-errors = true
+
+    [[udp]]
+      enabled = false
+      bind-address = ":8089"
+      database = "udp"
+      retention-policy = ""
+      batch-size = 5000
+      batch-pending = 10
+      read-buffer = 0
+      batch-timeout = "1s"
+      precision = ""
+
+    [continuous_queries]
+      log-enabled = true
+      enabled = true
+      query-stats-enabled = false
+      run-interval = "1s"
+
+    [tls]
+      min-version = ""
+      max-version = ""
